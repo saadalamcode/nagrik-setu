@@ -2,6 +2,7 @@
     margin: 0;
     font-family: Arial;
     box-sizing: border-box;
+font-family: Georgia, serif;
 }
 
 .header{
@@ -14,15 +15,15 @@
 .head-nav{
     /* gap: 30px; */
     color: white;
-    margin-top: 2px;
+    margin-top: 4px;
     display: flex;
     padding: 10px 5px 15px 5px;
     background-color: rgb(18, 58, 92);
     justify-content: space-between;
-    height: 90px;
+    height: 80px;
 }
 header .head-nav .logo {
-    height: 55px;
+    height: 65px;
    
 }
 .div1{
@@ -120,9 +121,10 @@ header .head-nav .title p.line2{
 
 
 header .nav-home ul{
-    background-color: rgb(1, 25, 49);
+    background-color: rgb(12, 40, 64);
     gap: 30px;
     list-style: none;
+    height: 50px;
     padding: 25px;
     padding-left: 175px;
     display: flex;
@@ -138,7 +140,10 @@ header .nav-home .nav-left,.nav-right{
 }
 header .nav-home a {
     text-decoration: none;
-    padding: 20px;
+    padding: 0 20px;
+       height: 50px;
+    display: flex;
+    align-items: center;
     color: rgb(195, 193, 193);
 }
 header .nav-home .nav-right{
@@ -147,4 +152,86 @@ header .nav-home .nav-right{
 .nav-home a:hover{
     color:white;
     border-bottom: 3px solid  #d9911f;
+}
+footer{
+    background-color: rgb(12, 40, 64);
+    color: white;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    height: 270px;
+    width: 100%;
+    
+    padding-left: 200px;
+    padding-right: 200px;
+
+}
+
+footer .bottom{
+        display: flex;
+        /* text-align: center; */
+        align-items: center;
+        justify-content: space-between;
+        padding: 30px;
+}
+
+.information {
+      display: flex;
+        text-align: center;
+        align-items: center;
+        justify-content: space-evenly;
+        
+}
+.nargrik-setu{
+    width: 300px;
+}
+.text1{
+    font-size: 20px;
+    padding-bottom: 10px;
+    
+}
+.text2,.text3{
+    font-size: 15px;
+     color : rgb(163, 160, 160);
+}
+.text3{
+       padding-bottom: 10px;
+}
+.text4{
+    padding-bottom: 10px;
+    font-size: 15px;
+}
+.information .info1,.info2 {
+        padding-right: 40px;
+}
+
+.info1,
+.info2,
+.info3 {
+    list-style: none;
+}
+
+ .info1 a{
+    display: flex;
+    
+}
+ .info2 a{
+    display: flex;
+    
+}
+.info3 a{
+    display: flex;
+}
+
+.info1{
+    padding-top: 25px ;
+}
+.copyright{
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    font-size: 15px;
+    color : rgb(221, 218, 218);
 }

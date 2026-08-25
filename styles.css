@@ -1,0 +1,150 @@
+* {
+    margin: 0;
+    font-family: Arial;
+    box-sizing: border-box;
+}
+
+.header{
+    /* background-color: rgb(200, 239, 8); */
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    height: 160px;
+}
+.head-nav{
+    /* gap: 30px; */
+    color: white;
+    margin-top: 2px;
+    display: flex;
+    padding: 10px 5px 15px 5px;
+    background-color: rgb(18, 58, 92);
+    justify-content: space-between;
+    height: 90px;
+}
+header .head-nav .logo {
+    height: 55px;
+   
+}
+.div1{
+    margin-left: 165px;
+}
+.div2{
+   
+    margin-right: 165px;
+}
+.div1,.div2{
+    display: flex;
+}
+header .head-nav .title p.line1,
+header .head-nav .title p.line2 {
+    padding: 0;
+    padding-left: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin: 0;
+    line-height: 1;
+    text-align: left;
+}
+
+header .head-nav .title p.line1{
+    color: rgb(213, 173, 121);
+   font-size: 25px;
+}
+header .head-nav .title p.line2{
+    color: rgb(221, 218, 218);
+    font-size: 15px;
+}
+
+ .div2{
+    
+    display: flex;
+    align-items: center;
+    gap: 24px;
+
+}
+
+/* Bell */
+.notification {
+    width: 38px;
+    height: 38px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    color: white;
+    font-size: 18px;
+}
+
+/* Profile */
+.profile {
+    width: 38px;
+    height: 38px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    color: white;
+    font-size: 16px;
+}
+
+/* Report Issue button */
+.report {
+    height: 42px;
+    padding: 15px;
+
+    background-color: #E9A027;
+    color: #000;
+
+    border-radius: 7px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 17px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.report:hover {
+    background-color: #d9911f;
+}
+
+/* // */
+
+
+header .nav-home ul{
+    background-color: rgb(1, 25, 49);
+    gap: 30px;
+    list-style: none;
+    padding: 25px;
+    padding-left: 175px;
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    align-items: center;
+    text-decoration: none;
+    color: white;
+}
+
+header .nav-home .nav-left,.nav-right{
+    display: flex;
+}
+header .nav-home a {
+    text-decoration: none;
+    padding: 20px;
+    color: rgb(195, 193, 193);
+}
+header .nav-home .nav-right{
+    padding-right: 175px;
+}
+.nav-home a:hover{
+    color:white;
+    border-bottom: 3px solid  #d9911f;
+}

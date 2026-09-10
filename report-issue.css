@@ -1,0 +1,1227 @@
+/* =========================================================
+   NAGRIK-SETU
+   REPORT ISSUE — FIGMA MATCH
+   ========================================================= */
+
+
+/* =========================================================
+   DESIGN TOKENS
+   ========================================================= */
+
+:root {
+    --navy: #173B5E;
+    --navy-dark: #12314D;
+
+    --ivory: #F7F3E8;
+    --white: #FFFFFF;
+
+    --saffron: #D9A829;
+    --saffron-dark: #C6931D;
+
+    --green: #4F6F52;
+
+    --text: #17232D;
+    --muted: #69727A;
+
+    --border: #DCD7CA;
+    --border-light: #E5E0D5;
+
+    --error: #B74335;
+}
+
+
+/* =========================================================
+   RESET
+   ========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+    min-height: 100vh;
+
+    background: var(--ivory);
+
+    color: var(--text);
+
+    font-family: "Inter", sans-serif;
+
+    -webkit-font-smoothing: antialiased;
+}
+
+
+button,
+a,
+input {
+    font: inherit;
+}
+
+
+/* =========================================================
+   TOP LINE
+   ========================================================= */
+
+.topline {
+    height: 4px;
+    width: 100%;
+
+    background: var(--saffron);
+}
+
+
+/* =========================================================
+   NAVBAR
+   ========================================================= */
+
+.site-header {
+    width: 100%;
+
+    background: var(--navy);
+
+    color: white;
+}
+
+
+.header-inner {
+    width: min(100% - 64px, 1280px);
+
+    min-height: 83px;
+
+    margin: 0 auto;
+
+    display: flex;
+    align-items: center;
+
+    gap: 28px;
+}
+
+
+/* ---------- Brand ---------- */
+
+.brand {
+    display: flex;
+    align-items: center;
+
+    gap: 11px;
+
+    flex-shrink: 0;
+
+    color: white;
+
+    text-decoration: none;
+}
+
+
+.brand-mark {
+    width: 31px;
+    height: 22px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 3px;
+}
+
+
+.brand-mark span {
+    display: block;
+
+    width: 6px;
+
+    border-radius: 3px;
+
+    background: var(--saffron);
+}
+
+
+.brand-mark span:nth-child(1) {
+    height: 7px;
+}
+
+
+.brand-mark span:nth-child(2) {
+    height: 13px;
+}
+
+
+.brand-mark span:nth-child(3) {
+    height: 7px;
+}
+
+
+.brand-text {
+    line-height: 1;
+}
+
+
+.brand-name {
+    font-family: "Fraunces", serif;
+
+    font-size: 23px;
+    font-weight: 600;
+
+    letter-spacing: -0.7px;
+}
+
+
+.brand-tagline {
+    margin-top: 4px;
+
+    font-size: 8px;
+
+    color: rgba(255, 255, 255, 0.7);
+}
+
+
+/* ---------- Main navigation ---------- */
+
+.main-nav {
+    display: flex;
+    align-items: stretch;
+
+    height: 100%;
+
+    gap: 3px;
+
+    margin-left: 18px;
+}
+
+
+.main-nav a {
+    display: flex;
+    align-items: center;
+
+    padding: 0 15px;
+
+    color: rgba(255, 255, 255, 0.76);
+
+    text-decoration: none;
+
+    font-size: 15px;
+    font-weight: 500;
+
+    border-bottom: 2px solid transparent;
+}
+
+
+.main-nav a:hover {
+    color: white;
+}
+
+
+.main-nav a.active {
+    color: white;
+
+    background: rgba(255, 255, 255, 0.10);
+
+    border-bottom-color: var(--saffron);
+}
+
+
+/* ---------- Header right ---------- */
+
+.header-actions {
+    margin-left: auto;
+
+    display: flex;
+    align-items: center;
+
+    gap: 13px;
+
+    white-space: nowrap;
+}
+
+
+.notification-button {
+    width: 39px;
+    height: 39px;
+
+    border: 0;
+
+    background: transparent;
+
+    color: white;
+
+    font-size: 22px;
+
+    cursor: pointer;
+}
+
+
+.profile {
+    height: 45px;
+
+    padding: 0 13px 0 8px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 8px;
+
+    border-radius: 24px;
+
+    background: rgba(255, 255, 255, 0.10);
+
+    color: white;
+
+    font-size: 14px;
+    font-weight: 600;
+}
+
+
+.profile-avatar {
+    width: 30px;
+    height: 30px;
+
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: var(--saffron);
+
+    color: white;
+
+    font-size: 13px;
+    font-weight: 700;
+}
+
+
+.header-report-button {
+    height: 50px;
+
+    padding: 0 18px;
+
+    display: flex;
+    align-items: center;
+
+    border-radius: 7px;
+
+    background: var(--saffron);
+
+    color: white;
+
+    text-decoration: none;
+
+    font-size: 14px;
+    font-weight: 700;
+}
+
+
+.header-report-button:hover {
+    background: var(--saffron-dark);
+}
+
+
+.authority-login {
+    color: rgba(255, 255, 255, 0.64);
+
+    text-decoration: none;
+
+    font-size: 13px;
+}
+
+
+.authority-login:hover {
+    color: white;
+}
+
+
+/* ---------- Mobile menu ---------- */
+
+.mobile-menu-button {
+    display: none;
+
+    margin-left: auto;
+
+    width: 42px;
+    height: 42px;
+
+    border: 0;
+
+    background: transparent;
+
+    color: white;
+
+    font-size: 24px;
+
+    cursor: pointer;
+}
+
+
+/* =========================================================
+   MAIN PAGE
+   ========================================================= */
+
+.page {
+    width: min(100% - 64px, 1280px);
+
+    margin: 0 auto;
+
+    padding: 24px 0 70px;
+}
+
+
+/* =========================================================
+   BREADCRUMB
+   ========================================================= */
+
+.breadcrumb {
+    display: flex;
+    align-items: center;
+
+    gap: 9px;
+
+    margin-bottom: 21px;
+
+    font-size: 12px;
+
+    color: var(--muted);
+}
+
+
+.breadcrumb a {
+    color: var(--navy);
+
+    text-decoration: none;
+}
+
+
+.breadcrumb a:hover {
+    text-decoration: underline;
+}
+
+
+/* =========================================================
+   PROGRESS BAR
+   ========================================================= */
+
+.progress {
+    width: min(900px, 100%);
+
+    margin: 0 auto 38px;
+
+    display: flex;
+    align-items: center;
+}
+
+
+.progress-item {
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+
+    flex-shrink: 0;
+}
+
+
+.progress-number {
+    width: 39px;
+    height: 39px;
+
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #E8E9E8;
+
+    color: #92989B;
+
+    font-size: 14px;
+    font-weight: 600;
+}
+
+
+.progress-item.active .progress-number {
+    background: var(--navy);
+
+    color: white;
+}
+
+
+.progress-label {
+    color: #74797C;
+
+    font-size: 14px;
+    font-weight: 500;
+}
+
+
+.progress-item.active .progress-label {
+    color: var(--navy);
+
+    font-weight: 700;
+}
+
+
+.progress-line {
+    flex: 1;
+
+    height: 2px;
+
+    min-width: 50px;
+
+    margin: 0 16px;
+
+    background: #D7D4CA;
+}
+
+
+/* =========================================================
+   CONTENT GRID
+   ========================================================= */
+
+.content-grid {
+    display: grid;
+
+    grid-template-columns: minmax(0, 2fr) minmax(300px, 360px);
+
+    align-items: start;
+
+    gap: 40px;
+}
+
+
+/* =========================================================
+   REPORT CARD
+   ========================================================= */
+
+.report-card {
+    background: white;
+
+    border: 1px solid var(--border);
+
+    border-radius: 10px;
+
+    padding: 30px;
+
+    box-shadow:
+        0 1px 2px rgba(23, 59, 94, 0.025);
+}
+
+
+.report-heading {
+    margin-bottom: 32px;
+}
+
+
+.report-heading h1 {
+    font-family: "Fraunces", serif;
+
+    color: var(--navy);
+
+    font-size: 31px;
+    line-height: 1.15;
+
+    font-weight: 600;
+
+    letter-spacing: -0.7px;
+
+    margin-bottom: 9px;
+}
+
+
+.report-heading p {
+    color: #707477;
+
+    font-size: 14px;
+
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   FORM SECTION
+   ========================================================= */
+
+.form-section {
+    margin-bottom: 31px;
+}
+
+
+.section-label {
+    margin-bottom: 11px;
+
+    color: var(--text);
+
+    font-size: 14px;
+
+    line-height: 1.3;
+}
+
+
+.section-label strong {
+    font-weight: 700;
+}
+
+
+.section-label span {
+    color: #9A9EA0;
+
+    font-weight: 400;
+}
+
+
+/* =========================================================
+   UPLOAD
+   ========================================================= */
+
+.upload-box {
+    width: 100%;
+    height: 230px;
+
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 2px dashed #DDD6C6;
+
+    border-radius: 8px;
+
+    background: #FFF;
+
+    cursor: pointer;
+
+    overflow: hidden;
+
+    transition:
+        border-color .2s ease,
+        background .2s ease;
+}
+
+
+.upload-box:hover,
+.upload-box.drag-over {
+    border-color: var(--saffron);
+
+    background: #FFFEF9;
+}
+
+
+.upload-content {
+    text-align: center;
+
+    pointer-events: none;
+}
+
+
+.upload-icon {
+    width: 60px;
+    height: 60px;
+
+    margin: 0 auto 15px;
+
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #F8F3E5;
+
+    color: var(--navy);
+}
+
+
+.upload-title {
+    margin-bottom: 6px;
+
+    color: #425466;
+
+    font-size: 14px;
+    font-weight: 500;
+}
+
+
+.upload-info {
+    color: #929699;
+
+    font-size: 11px;
+}
+
+
+.image-preview {
+    display: none;
+
+    position: absolute;
+
+    inset: 6px;
+
+    width: calc(100% - 12px);
+    height: calc(100% - 12px);
+
+    object-fit: cover;
+
+    border-radius: 5px;
+}
+
+
+.upload-box.has-image .upload-content {
+    display: none;
+}
+
+
+.upload-box.has-image .image-preview {
+    display: block;
+}
+
+
+.upload-error,
+.category-error {
+    min-height: 0;
+
+    margin-top: 6px;
+
+    color: var(--error);
+
+    font-size: 11px;
+}
+
+
+/* =========================================================
+   CATEGORY GRID
+   ========================================================= */
+
+.category-grid {
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 9px;
+}
+
+
+.category-card {
+    min-height: 102px;
+
+    padding: 12px 8px;
+
+    border: 1px solid #DED9CD;
+
+    border-radius: 8px;
+
+    background: white;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    gap: 9px;
+
+    color: var(--text);
+
+    cursor: pointer;
+
+    transition:
+        border-color .15s ease,
+        background .15s ease,
+        box-shadow .15s ease,
+        transform .1s ease;
+}
+
+
+.category-card:hover {
+    border-color: #BDB6A8;
+
+    background: #FFFDF8;
+}
+
+
+.category-card:active {
+    transform: scale(.99);
+}
+
+
+.category-card.selected {
+    border: 2px solid var(--navy);
+
+    background: #F5F8FA;
+
+    box-shadow:
+        0 0 0 1px rgba(23, 59, 94, .05);
+}
+
+
+.category-icon {
+    height: 30px;
+
+    display: flex;
+    align-items: center;
+
+    font-size: 25px;
+
+    line-height: 1;
+}
+
+
+.category-card > span:last-child {
+    color: #1C252B;
+
+    font-size: 12px;
+    font-weight: 500;
+
+    text-align: center;
+
+    line-height: 1.25;
+}
+
+
+/* =========================================================
+   CONTINUE BUTTON
+   ========================================================= */
+
+.continue-button {
+    width: 100%;
+    height: 45px;
+
+    border: 0;
+
+    border-radius: 5px;
+
+    background: var(--saffron);
+
+    color: white;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+
+    font-size: 13px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        background .2s ease,
+        transform .1s ease;
+}
+
+
+.continue-button:hover {
+    background: var(--saffron-dark);
+}
+
+
+.continue-button:active {
+    transform: translateY(1px);
+}
+
+
+/* =========================================================
+   HOW REPORTING WORKS
+   ========================================================= */
+
+.how-card {
+    background: white;
+
+    border: 1px solid var(--border);
+
+    border-radius: 10px;
+
+    padding: 27px 25px 23px;
+}
+
+
+.how-card h2 {
+    margin-bottom: 25px;
+
+    color: var(--navy);
+
+    font-family: "Fraunces", serif;
+
+    font-size: 21px;
+    line-height: 1.2;
+
+    font-weight: 600;
+
+    letter-spacing: -0.3px;
+}
+
+
+.work-step {
+    display: grid;
+
+    grid-template-columns: 39px 1fr;
+
+    gap: 11px;
+
+    margin-bottom: 22px;
+}
+
+
+.work-step:last-child {
+    margin-bottom: 0;
+}
+
+
+.work-number {
+    width: 35px;
+    height: 35px;
+
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: var(--navy);
+
+    color: white;
+
+    font-size: 11px;
+    font-weight: 700;
+}
+
+
+.work-content h3 {
+    margin: 1px 0 5px;
+
+    color: #18242D;
+
+    font-size: 14px;
+    font-weight: 700;
+}
+
+
+.work-content p {
+    color: #6E7377;
+
+    font-size: 12px;
+
+    line-height: 1.45;
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 1050px) {
+
+    .header-inner {
+        width: min(100% - 40px, 1280px);
+
+        gap: 16px;
+    }
+
+
+    .main-nav {
+        margin-left: 5px;
+    }
+
+
+    .main-nav a {
+        padding: 0 9px;
+
+        font-size: 13px;
+    }
+
+
+    .profile {
+        padding-right: 9px;
+    }
+
+
+    .profile span {
+        display: none;
+    }
+
+
+    .header-report-button {
+        padding: 0 12px;
+
+        font-size: 12px;
+    }
+
+
+    .authority-login {
+        display: none;
+    }
+
+
+    .page {
+        width: min(100% - 40px, 1280px);
+    }
+
+
+    .content-grid {
+        grid-template-columns: minmax(0, 1fr) 300px;
+
+        gap: 25px;
+    }
+
+
+    .category-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 760px) {
+
+    .topline {
+        height: 3px;
+    }
+
+
+    .header-inner {
+        width: calc(100% - 28px);
+
+        min-height: 64px;
+    }
+
+
+    .brand-name {
+        font-size: 19px;
+    }
+
+
+    .brand-tagline {
+        font-size: 7px;
+    }
+
+
+    .main-nav,
+    .header-actions {
+        display: none;
+    }
+
+
+    .mobile-menu-button {
+        display: block;
+    }
+
+
+    .page {
+        width: calc(100% - 24px);
+
+        padding: 18px 0 45px;
+    }
+
+
+    .breadcrumb {
+        margin-bottom: 18px;
+
+        font-size: 11px;
+    }
+
+
+    /* Progress */
+
+    .progress {
+        margin-bottom: 22px;
+
+        width: 100%;
+    }
+
+
+    .progress-label {
+        display: none;
+    }
+
+
+    .progress-item {
+        gap: 0;
+    }
+
+
+    .progress-number {
+        width: 31px;
+        height: 31px;
+
+        font-size: 12px;
+    }
+
+
+    .progress-line {
+        margin: 0 8px;
+    }
+
+
+    /* Stack */
+
+    .content-grid {
+        display: flex;
+
+        flex-direction: column;
+
+        gap: 17px;
+    }
+
+
+    .report-card {
+        width: 100%;
+
+        padding: 20px 15px 15px;
+
+        border-radius: 8px;
+    }
+
+
+    .report-heading {
+        margin-bottom: 23px;
+    }
+
+
+    .report-heading h1 {
+        font-size: 24px;
+    }
+
+
+    .report-heading p {
+        font-size: 12px;
+    }
+
+
+    /* Upload */
+
+    .upload-box {
+        height: 145px;
+    }
+
+
+    .upload-icon {
+        width: 44px;
+        height: 44px;
+
+        margin-bottom: 10px;
+    }
+
+
+    .upload-title {
+        font-size: 11px;
+    }
+
+
+    .upload-info {
+        font-size: 8px;
+    }
+
+
+    /* Category */
+
+    .category-grid {
+        grid-template-columns: repeat(2, 1fr);
+
+        gap: 5px;
+    }
+
+
+    .category-card {
+        min-height: 70px;
+
+        gap: 5px;
+    }
+
+
+    .category-icon {
+        height: 22px;
+
+        font-size: 19px;
+    }
+
+
+    .category-card > span:last-child {
+        font-size: 9px;
+    }
+
+
+    /* How it works */
+
+    .how-card {
+        width: 100%;
+
+        padding: 19px 15px 17px;
+    }
+
+
+    .how-card h2 {
+        font-size: 17px;
+
+        margin-bottom: 19px;
+    }
+
+
+    .work-step {
+        grid-template-columns: 30px 1fr;
+
+        gap: 9px;
+
+        margin-bottom: 15px;
+    }
+
+
+    .work-number {
+        width: 26px;
+        height: 26px;
+
+        font-size: 8px;
+    }
+
+
+    .work-content h3 {
+        font-size: 10px;
+    }
+
+
+    .work-content p {
+        font-size: 9px;
+    }
+
+}
+
+
+/* =========================================================
+   VERY SMALL PHONES
+   ========================================================= */
+
+@media (max-width: 380px) {
+
+    .brand-name {
+        font-size: 17px;
+    }
+
+
+    .brand-tagline {
+        font-size: 6px;
+    }
+
+
+    .report-heading h1 {
+        font-size: 22px;
+    }
+
+
+    .upload-box {
+        height: 130px;
+    }
+
+
+    .category-card {
+        min-height: 64px;
+    }
+
+}

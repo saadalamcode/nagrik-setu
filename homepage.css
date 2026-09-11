@@ -1,0 +1,364 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background-color: #F6F1E4;
+    color: #211D16;
+    font-family: 'Inter', sans-serif;
+}
+
+.topline {
+    height: 5px;
+    background-color: #E39A2E;
+}
+
+.site-header {
+    background-color: #123A5C;
+    color: #F6F1E4;
+}
+
+.header-inner {
+    width: 100%;
+    margin: 0;
+    min-height: 76px;
+    padding: 0 48px;
+    display: flex;
+    align-items: center;
+    gap: 22px;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #F6F1E4;
+    text-decoration: none;
+    flex-shrink: 0;
+}
+
+.brand-logo {
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+.brand-text .display {
+    font-family: 'Fraunces', serif;
+    font-size: 21px;
+    font-weight: 600;
+    color: #F6F1E4;
+    line-height: 1;
+}
+
+.brand-text .tagline {
+    font-size: 11px;
+    color: #C7D3DC;
+    margin-top: 4px;
+    white-space: nowrap;
+}
+
+.portal-space {
+    width: 144px;
+    flex-shrink: 0;
+}
+
+.site-nav {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    margin-left: 24px;
+    height: 100%;
+}
+
+.site-nav a {
+    display: flex;
+    align-items: center;
+    padding: 13px 15px 9px;
+    color: #C7D3DC;
+    text-decoration: none;
+    font-size: 13.2px;
+    font-weight: 500;
+    border-bottom: 2px solid transparent;
+    white-space: nowrap;
+}
+
+.site-nav a:hover {
+    color: #FFFFFF;
+}
+
+.site-nav a.active {
+    color: #FFFFFF;
+    background-color: #315879;
+    border-bottom-color: #E39A2E;
+    border-radius: 5px;
+}
+
+.header-actions {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+}
+
+.profile-circle {
+    width: 38px;
+    height: 38px;
+    border: 1px solid rgba(246, 241, 228, 0.4);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #F6F1E4;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.report-button {
+    padding: 9px 16px;
+    background-color: #E39A2E;
+    border: 1px solid #E39A2E;
+    border-radius: 5px;
+    color: #FFFFFF;
+    text-decoration: none;
+    font-size: 12.5px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.report-button:hover {
+    background-color: #C98218;
+    border-color: #C98218;
+}
+
+.authority-login {
+    color: #C7D3DC;
+    text-decoration: none;
+    font-size: 12.5px;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.authority-login:hover {
+    color: #FFFFFF;
+}
+
+.hero {
+    background-color: #EFE7D2;
+    border-bottom: 1px solid #DDD3B8;
+    padding: 58px 0 62px;
+}
+
+.hero-grid {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.hero-head {
+    max-width: 620px;
+}
+
+.eyebrow {
+    font-size: 13px;
+    font-weight: 600;
+    color: #B87A1D;
+    margin-bottom: 13px;
+}
+
+.hero h1 {
+    max-width: 600px;
+    margin: 0;
+    font-family: 'Fraunces', serif;
+    font-size: 36px;
+    font-weight: 600;
+    line-height: 1.2;
+    color: #0C2840;
+}
+
+.hero p {
+    max-width: 650px;
+    margin: 14px 0 0;
+    font-size: 15px;
+    line-height: 1.6;
+    color: #75705F;
+}
+
+.hero {
+    background-color: #EFE7D2;
+    border-bottom: 1px solid #DDD3B8;
+    padding: 76px 0 82px;
+}
+.hero-grid {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+.hero-head {
+    max-width: 620px;
+}
+.eyebrow {
+    font-size: 13px;
+    font-weight: 600;
+    color: #B87A1D;
+    margin-bottom: 13px;
+}
+.hero h1 {
+    max-width: 600px;
+    margin: 0;
+    font-family: 'Fraunces', serif;
+    font-size: 36px;
+    font-weight: 600;
+    line-height: 1.2;
+    color: #0C2840;
+}
+.hero p {
+    max-width: 650px;
+    margin: 14px 0 0;
+    font-size: 15px;
+    line-height: 1.6;
+    color: #75705F;
+}
+.stat-board {
+    display: flex;
+    width: 500px;
+    background-color: #FFFDF6;
+    border: 1px solid #DDD3B8;
+    border-radius: 10px;
+    overflow: hidden;
+    flex-shrink: 0;
+    transform: translateY(45px);
+}
+.stat-cell {
+    width: 125px;
+    padding: 11px 13px;
+    border-right: 1px solid #DDD3B8;
+}
+.stat-cell:last-child {
+    border-right: none;
+}
+.stat-number {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 1;
+    color: #0C2840;
+}
+.stat-label {
+    margin-top: 6px;
+    font-size: 10.5px;
+    line-height: 1.3;
+    color: #75705F;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.site-footer {
+    background-color: #123A5C;
+    color: #C7D3DC;
+    margin-top: 40px;
+}
+.footer-inner {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 42px 70px 34px;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 50px;
+}
+.footer-brand {
+    max-width: 330px;
+}
+.footer-brand img {
+    width: 58px;
+    height: 58px;
+    object-fit: contain;
+    display: block;
+    margin-bottom: 10px;
+}
+.footer-brand-name {
+    font-family: 'Fraunces', serif;
+    font-size: 21px;
+    font-weight: 600;
+    color: #F6F1E4;
+    margin-bottom: 8px;
+}
+.footer-brand p {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.7;
+    color: #B8C7D3;
+    max-width: 300px;
+}
+.footer-column {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.footer-column h3 {
+    margin: 0 0 18px;
+    color: #F6F1E4;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+}
+.footer-column a {
+    margin-bottom: 12px;
+    color: #B8C7D3;
+    text-decoration: none;
+    font-size: 14px;
+}
+.footer-column a:hover {
+    color: #F6F1E4;
+}
+.footer-bottom {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 16px 70px 20px;
+    border-top: 1px solid rgba(246, 241, 228, 0.15);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #91A8BA;
+    font-size: 13px;
+}

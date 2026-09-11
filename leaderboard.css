@@ -1,0 +1,791 @@
+/* =========================================================
+   NAGRIK-SETU — LEADERBOARD PAGE
+   ========================================================= */
+
+
+/* ================= GLOBAL ================= */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #111111;
+    background: #F7F3E8;
+}
+
+a {
+    text-decoration: none;
+}
+
+.leaderboard-container {
+    width: min(1520px, calc(100% - 48px));
+    margin: 0 auto;
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.leaderboard-header {
+    height: 76px;
+    background: #173B5E;
+    color: white;
+    border-top: 3px solid #D89A2B;
+}
+
+.header-inner {
+    width: 1520px;
+    max-width: calc(100% - 48px);
+    height: 100%;
+    margin: 0 auto;
+
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+
+/* ================= BRAND ================= */
+
+.brand {
+    display: flex;
+    align-items: center;
+    width: 190px;
+    flex-shrink: 0;
+}
+
+.brand-mark {
+    width: 34px;
+    height: 22px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-right: 10px;
+}
+
+.brand-mark span {
+    display: block;
+}
+
+.brand-mark span:nth-child(1) {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #D89A2B;
+}
+
+.brand-mark span:nth-child(2) {
+    width: 14px;
+    height: 3px;
+    background: white;
+}
+
+.brand-mark span:nth-child(3) {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #D89A2B;
+}
+
+.brand-title {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 23px;
+    font-weight: 700;
+    line-height: 22px;
+}
+
+.brand-hindi {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 13px;
+    text-align: center;
+    color: #D6DCE4;
+    margin-top: 1px;
+}
+
+
+/* ================= NAVIGATION ================= */
+
+.main-nav {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.main-nav a {
+    color: #F7F7F7;
+
+    padding: 12px 15px;
+
+    font-size: 16px;
+    font-weight: 500;
+
+    border-radius: 5px;
+}
+
+.main-nav a:hover {
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.main-nav a.active {
+    background: #2F4F6E;
+    border: 1px solid #4C6983;
+    box-shadow: inset 0 -2px 0 #D89A2B;
+}
+
+
+/* ================= HEADER ACTIONS ================= */
+
+.header-actions {
+    margin-left: auto;
+
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.notification-btn {
+    border: none;
+    background: transparent;
+    color: white;
+
+    font-size: 22px;
+
+    cursor: pointer;
+}
+
+.profile-pill {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+
+    padding: 6px 15px 6px 7px;
+
+    border-radius: 25px;
+
+    background: #2F4F6E;
+    border: 1px solid #48657D;
+
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.profile-avatar {
+    width: 30px;
+    height: 30px;
+
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #D89A2B;
+    color: white;
+
+    font-weight: 700;
+}
+
+.report-btn {
+    background: #D89A2B;
+    color: white;
+
+    padding: 14px 24px;
+
+    border-radius: 7px;
+
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.report-btn:hover {
+    opacity: 0.9;
+}
+
+.authority-link {
+    color: #C8D6E4;
+    font-size: 15px;
+    white-space: nowrap;
+}
+
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.leaderboard-hero {
+    background: #173B5E;
+    color: white;
+
+    padding: 25px 0 47px;
+}
+
+.leaderboard-hero h1 {
+    margin: 0;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: 36px;
+    line-height: 1.1;
+    font-weight: 700;
+}
+
+.leaderboard-hero p {
+    margin: 10px 0 0;
+
+    color: #B9CEE2;
+
+    font-size: 17px;
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   MAIN
+   ========================================================= */
+
+.leaderboard-main {
+    padding: 38px 0 40px;
+}
+
+.leaderboard-layout {
+    display: grid;
+
+    grid-template-columns: minmax(0, 1fr) 344px;
+
+    gap: 38px;
+
+    align-items: start;
+}
+
+
+/* =========================================================
+   TOP THREE
+   ========================================================= */
+
+.top-three {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr 1fr;
+
+    gap: 20px;
+
+    align-items: center;
+
+    margin-bottom: 38px;
+}
+
+.rank-card {
+    width: 335px;
+    height: 277px;
+
+    background: #FFFFFF;
+
+    border: 1px solid #D9D1BF;
+
+    border-radius: 12px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 20px;
+}
+
+
+/* #1 card */
+
+.first-place {
+    width: 335px;
+    height: 300px;
+
+    border: 1px solid #D89A2B;
+
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.02);
+}
+
+.first-place .rank-number,
+.first-place .points {
+    color: #D89A2B;
+}
+
+
+/* ================= RANK NUMBER ================= */
+
+.rank-number {
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: 29px;
+    font-weight: 500;
+
+    color: #333333;
+
+    margin-bottom: 13px;
+}
+
+
+/* ================= CITIZEN AVATAR ================= */
+
+.citizen-avatar {
+    width: 58px;
+    height: 58px;
+
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: white;
+
+    font-size: 21px;
+    font-weight: 700;
+
+    margin-bottom: 10px;
+}
+
+.citizen-avatar.blue {
+    background: #173B5E;
+}
+
+.citizen-avatar.gold {
+    background: #D89A2B;
+}
+
+
+/* ================= CITIZEN NAME ================= */
+
+.rank-card h3 {
+    margin: 0;
+
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.locality {
+    margin: 5px 0 15px;
+
+    font-size: 14px;
+    color: #333333;
+}
+
+.points {
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: 29px;
+    font-weight: 700;
+
+    color: #173B5E;
+
+    line-height: 1;
+}
+
+.points-label {
+    margin-top: 4px;
+
+    font-size: 14px;
+
+    color: #333333;
+}
+
+
+/* =========================================================
+   LEADERBOARD TABLE
+   ========================================================= */
+
+.leaderboard-table-wrapper {
+    background: white;
+
+    border: 1px solid #D9D1BF;
+
+    border-radius: 12px;
+
+    overflow: hidden;
+}
+
+.leaderboard-table {
+    width: 100%;
+
+    border-collapse: collapse;
+
+    font-size: 16px;
+}
+
+
+/* ================= TABLE HEADER ================= */
+
+.leaderboard-table thead {
+    background: #173B5E;
+    color: white;
+}
+
+.leaderboard-table th {
+    padding: 14px 14px;
+
+    text-align: left;
+
+    font-size: 14px;
+    font-weight: 700;
+}
+
+
+/* ================= TABLE BODY ================= */
+
+.leaderboard-table td {
+    padding: 11px 14px;
+
+    border-bottom: 1px solid #D9D1BF;
+
+    height: 58px;
+
+    vertical-align: middle;
+}
+
+.leaderboard-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+
+/* ================= CITIZEN CELL ================= */
+
+.citizen-cell {
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+
+    white-space: nowrap;
+}
+
+.small-avatar {
+    width: 34px;
+    height: 34px;
+
+    flex-shrink: 0;
+
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: white;
+
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.small-avatar.blue {
+    background: #173B5E;
+}
+
+.small-avatar.gold {
+    background: #D89A2B;
+}
+
+
+/* ================= POINTS ================= */
+
+.table-points {
+    color: #173B5E;
+
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   POINTS SIDEBAR
+   ========================================================= */
+
+.points-sidebar {
+    background: #FFFFFF;
+
+    border: 1px solid #D9D1BF;
+
+    border-radius: 12px;
+
+    padding: 25px 24px;
+}
+
+.points-sidebar h2 {
+    margin: 0 0 22px;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: 21px;
+
+    color: #173B5E;
+}
+
+.points-description {
+    margin: 0 0 20px;
+
+    font-size: 16px;
+
+    line-height: 1.45;
+
+    color: #333333;
+}
+
+
+/* ================= POINT RULE ================= */
+
+.points-rule {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 15px;
+
+    padding: 13px 0;
+
+    border-bottom: 1px solid #D9D1BF;
+
+    font-size: 16px;
+}
+
+.points-rule strong {
+    color: #246B3B;
+
+    white-space: nowrap;
+}
+
+
+/* ================= POINTS NOTE ================= */
+
+.points-note {
+    margin-top: 22px;
+
+    padding: 17px 15px;
+
+    background: #F7F3E8;
+
+    border-radius: 10px;
+
+    font-size: 14px;
+
+    line-height: 1.5;
+
+    color: #333333;
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+.leaderboard-footer {
+    background: #173B5E;
+
+    color: #C8D6E4;
+
+    padding: 50px 0 0;
+}
+
+.footer-inner {
+    display: grid;
+
+    grid-template-columns: 1.25fr 1fr 1fr 1fr;
+
+    gap: 80px;
+
+    padding-bottom: 42px;
+}
+
+
+/* ================= FOOTER BRAND ================= */
+
+.footer-brand h3 {
+    margin: 0;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: 20px;
+
+    color: white;
+}
+
+.footer-hindi {
+    margin: 4px 0 20px;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: 15px;
+}
+
+.footer-brand > p:last-child {
+    max-width: 290px;
+
+    margin: 0;
+
+    line-height: 1.6;
+
+    font-size: 16px;
+}
+
+
+/* ================= FOOTER COLUMNS ================= */
+
+.footer-column {
+    display: flex;
+    flex-direction: column;
+
+    gap: 15px;
+}
+
+.footer-column h4 {
+    margin: 0 0 8px;
+
+    color: white;
+
+    font-size: 14px;
+
+    letter-spacing: 0.3px;
+}
+
+.footer-column a {
+    color: #C8D6E4;
+
+    font-size: 16px;
+}
+
+.footer-column a:hover {
+    color: white;
+}
+
+
+/* ================= FOOTER BOTTOM ================= */
+
+.footer-bottom {
+    width: min(1520px, calc(100% - 48px));
+
+    margin: 0 auto;
+
+    border-top: 1px solid #315474;
+
+    padding: 19px 0 24px;
+
+    font-size: 14px;
+
+    color: #AFC2D4;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 1200px) {
+
+    .header-inner {
+        gap: 20px;
+    }
+
+    .brand {
+        width: 170px;
+    }
+
+    .authority-link {
+        display: none;
+    }
+
+    .leaderboard-layout {
+        grid-template-columns: 1fr 310px;
+    }
+
+    .footer-inner {
+        gap: 40px;
+    }
+}
+
+
+@media (max-width: 900px) {
+
+    .leaderboard-header {
+        height: auto;
+    }
+
+    .header-inner {
+        padding: 15px 0;
+
+        flex-wrap: wrap;
+    }
+
+    .header-actions {
+        margin-left: 0;
+    }
+
+    .leaderboard-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .points-sidebar {
+        width: 100%;
+    }
+
+    .footer-inner {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+
+@media (max-width: 700px) {
+
+    .leaderboard-container {
+    width: 1520px;
+    max-width: calc(100% - 48px);
+    margin: 0 auto;
+    }
+
+    .main-nav {
+        order: 3;
+
+        width: 100%;
+
+        overflow-x: auto;
+    }
+
+    .header-actions {
+        margin-left: auto;
+    }
+
+    .profile-pill span {
+        display: none;
+    }
+
+    .top-three {
+    display: grid;
+    grid-template-columns: repeat(3, 335px);
+    gap: 20px;
+    align-items: center;
+    margin-bottom: 38px;
+    }
+
+    .rank-card,
+    .first-place {
+        height: auto;
+
+        min-height: 250px;
+    }
+
+    .leaderboard-table-wrapper {
+        overflow-x: auto;
+    }
+
+    .leaderboard-table {
+        min-width: 750px;
+    }
+
+    .footer-inner {
+        grid-template-columns: 1fr;
+    }
+}

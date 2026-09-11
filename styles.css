@@ -14,6 +14,10 @@ body {
 
    /* HEADER */
 
+   .report a{
+    text-decoration: none;
+    color: white;
+   }
 
 .header {
     text-align: center;

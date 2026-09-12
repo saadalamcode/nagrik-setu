@@ -3,83 +3,610 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>My Locality | Nagrik Setu</title>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600&family=IBM+Plex+Mono:wght@500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600&family=Inter:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
     <link rel="stylesheet" href="mylocality.css">
 </head>
+
 <body>
+
     <div class="topline"></div>
+
+    <!-- Header -->
     <header class="site-header">
         <div class="header-inner">
+
             <a class="brand" href="homepage.html">
-                <img src="Nagriksetulogo.png" alt="Nagrik Setu logo" class="brand-logo">
+                <img
+                    src="Nagriksetulogo.png"
+                    alt="Nagrik Setu logo"
+                    class="brand-logo"
+                >
+
                 <div class="brand-text">
                     <div class="display">Nagrik Setu</div>
+
                     <div class="tagline">
                         Report it. Track it. Fix it, together.
                     </div>
                 </div>
             </a>
+
             <div class="portal-space"></div>
+
             <nav class="site-nav">
                 <a href="homepage.html">Home</a>
+
                 <a href="report-issue.html">Report Issue</a>
-                <a class="active" href="mylocality.html">My Locality</a>
-                <a href="leaderboard.html">Leaderboard</a>
+
+                <a class="active" href="mylocality.html">
+                    My Locality
+                </a>
+
+                <a href="leaderboard.html">
+                    Leaderboard
+                </a>
             </nav>
+
             <div class="header-actions">
+
+                <div class="notification">
+                    <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                    >
+                        <path
+                            d="M18 9C18 5.686 15.761 3 12 3C8.239 3 6 5.686 6 9C6 14 4 15.5 4 17H20C20 15.5 18 14 18 9Z"
+                            stroke="currentColor"
+                            stroke-width="1.7"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        />
+
+                        <path
+                            d="M10 20C10.5 21 11.2 21.5 12 21.5C12.8 21.5 13.5 21 14 20"
+                            stroke="currentColor"
+                            stroke-width="1.7"
+                            stroke-linecap="round"
+                        />
+                    </svg>
+                </div>
+
                 <div class="profile-circle">
                     RS
                 </div>
-                <a class="report-button" href="report-issue.html">
+
+                <a
+                    class="report-button"
+                    href="report-issue.html"
+                >
                     + Report Issue
                 </a>
-                <a class="authority-login" href="authority-dashboard.html">
+
+                <a
+                    class="authority-login"
+                    href="authority-dashboard.html"
+                >
                     Authority login
                 </a>
+
             </div>
+
         </div>
     </header>
 
+
     <main>
+
+        <div class="locality-page">
+
+            <!-- Breadcrumb -->
+            <div class="breadcrumb">
+                <a href="homepage.html">Home</a>
+                <span>/</span>
+                <span>My locality</span>
+            </div>
+
+
+            <!-- Locality heading -->
+            <section class="locality-heading">
+
+                <div class="location-label">
+                    <span class="location-icon">⌖</span>
+                    Sector 14 · Ward 9
+                </div>
+
+                <h1>My Locality</h1>
+
+                <p>
+                    Overview of civic issues and performance in your area.
+                </p>
+
+            </section>
+
+
+            <!-- Stats -->
+            <section class="stats-grid">
+
+                <div class="stat-card">
+                    <div class="stat-value">38</div>
+                    <div class="stat-label">Open issues</div>
+
+                    <div class="stat-icon">▤</div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-value">52</div>
+                    <div class="stat-label">Resolved this month</div>
+
+                    <div class="stat-icon">✓</div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-value">7.8 / 10</div>
+                    <div class="stat-label">Ward response score</div>
+
+                    <div class="stat-icon">▥</div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-value">4,210</div>
+                    <div class="stat-label">Citizen impact score</div>
+
+                    <div class="stat-icon">♟</div>
+                </div>
+
+            </section>
+
+
+            <!-- Map + performance -->
+            <section class="top-content-grid">
+
+                <div class="map-card">
+
+                    <div class="card-header">
+                        <h2>Issue map — Sector 14</h2>
+
+                        <span class="live-badge">
+                            <span></span>
+                            Live
+                        </span>
+                    </div>
+
+                    <div class="map-area">
+
+                        <div class="map-dot dot-one"></div>
+                        <div class="map-dot dot-two"></div>
+                        <div class="map-dot dot-three"></div>
+                        <div class="map-dot dot-four"></div>
+                        <div class="map-dot dot-five"></div>
+
+                        <div class="map-label">
+                            Sector 14, Faridabad · Ward 9
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <aside class="performance-card">
+
+                    <h2>Ward performance</h2>
+
+                    <div class="performance-row">
+                        <span>Avg. response time</span>
+                        <strong>6.2 days</strong>
+                    </div>
+
+                    <div class="performance-row">
+                        <span>Resolution rate</span>
+                        <strong>81%</strong>
+                    </div>
+
+                    <div class="performance-row">
+                        <span>Citizen verification</span>
+                        <strong>74%</strong>
+                    </div>
+
+                    <div class="performance-row">
+                        <span>Response score</span>
+                        <strong>7.8 / 10</strong>
+                    </div>
+
+                    <a
+                        href="report-issue.html"
+                        class="performance-button"
+                    >
+                        Report an issue
+                    </a>
+
+                </aside>
+
+            </section>
+
+
+            <!-- Category breakdown -->
+            <section class="category-card">
+
+                <h2>Category breakdown</h2>
+
+                <div class="category-row">
+
+                    <div class="category-info">
+                        <span>Potholes</span>
+                        <span>14 open / 22 resolved</span>
+                    </div>
+
+                    <div class="bar">
+                        <div
+                            class="bar-fill navy"
+                            style="width: 100%;"
+                        ></div>
+                    </div>
+
+                </div>
+
+
+                <div class="category-row">
+
+                    <div class="category-info">
+                        <span>Garbage</span>
+                        <span>9 open / 18 resolved</span>
+                    </div>
+
+                    <div class="bar">
+                        <div
+                            class="bar-fill saffron"
+                            style="width: 76%;"
+                        ></div>
+                    </div>
+
+                </div>
+
+
+                <div class="category-row">
+
+                    <div class="category-info">
+                        <span>Drainage</span>
+                        <span>8 open / 7 resolved</span>
+                    </div>
+
+                    <div class="bar">
+                        <div
+                            class="bar-fill green"
+                            style="width: 42%;"
+                        ></div>
+                    </div>
+
+                </div>
+
+
+                <div class="category-row">
+
+                    <div class="category-info">
+                        <span>Streetlights</span>
+                        <span>5 open / 3 resolved</span>
+                    </div>
+
+                    <div class="bar">
+                        <div
+                            class="bar-fill gray"
+                            style="width: 22%;"
+                        ></div>
+                    </div>
+
+                </div>
+
+
+                <div class="category-row">
+
+                    <div class="category-info">
+                        <span>Water supply</span>
+                        <span>2 open / 2 resolved</span>
+                    </div>
+
+                    <div class="bar">
+                        <div
+                            class="bar-fill navy"
+                            style="width: 11%;"
+                        ></div>
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- Issues + resolutions -->
+            <section class="bottom-grid">
+
+                <div class="issues-card">
+
+                    <h2>Issues affecting your area</h2>
+
+                    <div class="filters">
+
+                        <button class="filter active">
+                            All
+                        </button>
+
+                        <button class="filter">
+                            Pothole
+                        </button>
+
+                        <button class="filter">
+                            Garbage
+                        </button>
+
+                        <button class="filter">
+                            Drainage
+                        </button>
+
+                        <button class="filter">
+                            Streetlight
+                        </button>
+
+                        <button class="filter">
+                            Water supply
+                        </button>
+
+                    </div>
+
+
+                    <div class="issue-list">
+
+                        <div class="issue-row">
+
+                            <div>
+                                <strong>
+                                    Pothole cluster near market
+                                </strong>
+
+                                <p>
+                                    #NS-1842 · 3h ago
+                                </p>
+                            </div>
+
+                            <span class="status progress">
+                                In progress
+                            </span>
+
+                        </div>
+
+
+                        <div class="issue-row">
+
+                            <div>
+                                <strong>
+                                    Garbage overflow Block C
+                                </strong>
+
+                                <p>
+                                    #NS-1839 · 8h ago
+                                </p>
+                            </div>
+
+                            <span class="status acknowledged">
+                                Acknowledged
+                            </span>
+
+                        </div>
+
+
+                        <div class="issue-row">
+
+                            <div>
+                                <strong>
+                                    Open drainage waterlogging
+                                </strong>
+
+                                <p>
+                                    #NS-1825 · 1d ago
+                                </p>
+                            </div>
+
+                            <span class="status progress">
+                                In progress
+                            </span>
+
+                        </div>
+
+
+                        <div class="issue-row">
+
+                            <div>
+                                <strong>
+                                    Broken streetlight Park Road
+                                </strong>
+
+                                <p>
+                                    #NS-1820 · 2d ago
+                                </p>
+                            </div>
+
+                            <span class="status reported">
+                                Reported
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="resolutions-card">
+
+                    <h2>Recent resolutions</h2>
+
+                    <div class="resolution-row">
+
+                        <div class="check">
+                            ✓
+                        </div>
+
+                        <div class="resolution-content">
+
+                            <strong>
+                                Water supply disruption resolved
+                            </strong>
+
+                            <p>
+                                #NS-1811 · Sep 7, 2024
+                            </p>
+
+                        </div>
+
+                        <span class="resolved">
+                            Resolved
+                        </span>
+
+                    </div>
+
+
+                    <div class="resolution-row">
+
+                        <div class="check">
+                            ✓
+                        </div>
+
+                        <div class="resolution-content">
+
+                            <strong>
+                                Garbage cleared at sector gate
+                            </strong>
+
+                            <p>
+                                #NS-1798 · Sep 5, 2024
+                            </p>
+
+                        </div>
+
+                        <span class="resolved">
+                            Resolved
+                        </span>
+
+                    </div>
+
+
+                    <div class="resolution-row">
+
+                        <div class="check">
+                            ✓
+                        </div>
+
+                        <div class="resolution-content">
+
+                            <strong>
+                                Road patch near school completed
+                            </strong>
+
+                            <p>
+                                #NS-1776 · Sep 2, 2024
+                            </p>
+
+                        </div>
+
+                        <span class="resolved">
+                            Resolved
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </div>
 
     </main>
 
+
+    <!-- Footer -->
     <footer class="site-footer">
+
         <div class="footer-inner">
+
             <div class="footer-brand">
-                <img src="Nagriksetulogo.png" alt="Nagrik Setu logo">
-                <div class="footer-brand-name">Nagrik Setu</div>
+
+                <img
+                    src="Nagriksetulogo.png"
+                    alt="Nagrik Setu logo"
+                >
+
+                <div class="footer-brand-name">
+                    Nagrik Setu
+                </div>
+
                 <p>
                     Connecting citizens with local authorities.
                     Report it. Track it. Fix it, together.
                 </p>
+
             </div>
+
+
             <div class="footer-column">
+
                 <h3>PLATFORM</h3>
+
                 <a href="homepage.html">Home</a>
                 <a href="report-issue.html">Report an issue</a>
                 <a href="mylocality.html">My locality</a>
                 <a href="leaderboard.html">Leaderboard</a>
+
             </div>
+
+
             <div class="footer-column">
+
                 <h3>FOR AUTHORITIES</h3>
-                <a href="authority-dashboard.html">Authority login</a>
+
+                <a href="authority-dashboard.html">
+                    Authority login
+                </a>
+
             </div>
+
+
             <div class="footer-column">
+
                 <h3>ABOUT</h3>
+
                 <a href="#">How it works</a>
                 <a href="#">Contact support</a>
                 <a href="#">Privacy policy</a>
                 <a href="#">Terms of use</a>
+
             </div>
+
         </div>
+
+
         <div class="footer-bottom">
-            <div>© 2026 Nagrik Setu. Sector 14 · Faridabad Ward 9</div>
-            <div>A civic transparency platform</div>
+
+            <div>
+                © 2026 Nagrik Setu. Sector 14 · Faridabad Ward 9
+            </div>
+
+            <div>
+                A civic transparency platform
+            </div>
+
         </div>
+
     </footer>
+
 </body>
 </html>

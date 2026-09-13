@@ -1,33 +1,29 @@
 * {
     box-sizing: border-box;
 }
-
 body {
     margin: 0;
     background-color: #F6F1E4;
     color: #211D16;
     font-family: 'Inter', sans-serif;
 }
-
 .topline {
     height: 5px;
     background-color: #E39A2E;
 }
-
 .site-header {
     background-color: #123A5C;
     color: #F6F1E4;
 }
-
 .header-inner {
     width: 100%;
+    margin: 0;
     min-height: 76px;
     padding: 0 48px;
     display: flex;
     align-items: center;
     gap: 22px;
 }
-
 .brand {
     display: flex;
     align-items: center;
@@ -36,14 +32,12 @@ body {
     text-decoration: none;
     flex-shrink: 0;
 }
-
 .brand-logo {
     width: 48px;
     height: 48px;
     object-fit: contain;
-    display: block;
+    flex-shrink: 0;
 }
-
 .brand-text .display {
     font-family: 'Fraunces', serif;
     font-size: 21px;
@@ -51,19 +45,16 @@ body {
     color: #F6F1E4;
     line-height: 1;
 }
-
 .brand-text .tagline {
     font-size: 11px;
     color: #C7D3DC;
     margin-top: 4px;
     white-space: nowrap;
 }
-
 .portal-space {
     width: 144px;
     flex-shrink: 0;
 }
-
 .site-nav {
     display: flex;
     align-items: center;
@@ -71,30 +62,26 @@ body {
     margin-left: 24px;
     height: 100%;
 }
-
 .site-nav a {
     display: flex;
     align-items: center;
     padding: 13px 15px 9px;
     color: #C7D3DC;
     text-decoration: none;
-    font-size: 12.5px;
+    font-size: 13.2px;
     font-weight: 500;
     border-bottom: 2px solid transparent;
     white-space: nowrap;
 }
-
 .site-nav a:hover {
     color: #FFFFFF;
 }
-
 .site-nav a.active {
     color: #FFFFFF;
     background-color: #315879;
     border-bottom-color: #E39A2E;
     border-radius: 5px;
 }
-
 .header-actions {
     margin-left: auto;
     display: flex;
@@ -102,7 +89,6 @@ body {
     gap: 10px;
     flex-shrink: 0;
 }
-
 .profile-circle {
     width: 38px;
     height: 38px;
@@ -115,7 +101,6 @@ body {
     font-size: 13px;
     font-weight: 600;
 }
-
 .report-button {
     padding: 9px 16px;
     background-color: #E39A2E;
@@ -127,12 +112,10 @@ body {
     font-weight: 600;
     white-space: nowrap;
 }
-
 .report-button:hover {
     background-color: #C98218;
     border-color: #C98218;
 }
-
 .authority-login {
     color: #C7D3DC;
     text-decoration: none;
@@ -140,7 +123,6 @@ body {
     font-weight: 500;
     white-space: nowrap;
 }
-
 .authority-login:hover {
     color: #FFFFFF;
 }

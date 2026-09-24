@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nagrik Setu - Authority Login</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="authority-login.css">
+</head>
+<body>
+    <div class="topline"></div>
+    <header class="site-header">
+        <div class="header-inner">
+            <a class="brand" href="homepage.html">
+                <img src="Nagriksetulogo.png" alt="Nagrik Setu logo" class="brand-logo">
+                <div class="brand-text">
+                    <div class="display">Nagrik Setu</div>
+                    <div class="tagline">Report it. Track it. Fix it, together.</div>
+                </div>
+            </a>
+            <div class="portal-space"></div>
+            <nav class="site-nav">
+                <a href="homepage.html">Home</a>
+                <a href="report-issue.html">Report Issue</a>
+                <a href="mylocality.html">My Locality</a>
+                <a href="leaderboard.html">Leaderboard</a>
+            </nav>
+            <div class="header-actions">
+                <div class="profile-circle">RS</div>
+                <a class="report-button" href="authority-login.html">Authority login</a>
+            </div>
+        </div>
+    </header>
+
+    <<main class="login-page">
+    <div class="background-text left-text">
+    Small<br>reports.
+    <span class="orange-line"></span>
+</div>
+
+<div class="background-text right-text">
+    Real<br>change.
+    <p>Better cities<br>begin with people<br>who care.</p>
+</div><div class="background-text right-text">
+    Real<br>change.
+    <p>Better cities<br>begin with people<br>who care.</p>
+    <span class="orange-line"></span>
+</div>
+
+    <section class="login-shell">
+        <div class="login-card">
+    <span class="login-accent"></span>
+<div class="login-label">AUTHORITY</div>
+<h1>Authority Login</h1>
+<p class="login-subtitle">Sign in to manage reports and services</p>
+
+                <form id="authorityLoginForm" novalidate>
+                    <label>
+                         Email
+                        <div class="input-with-icon">
+    <span class="input-icon">✉</span>
+    <input type="email" id="email" name="email" placeholder="officer@faridabad.gov.in" required>
+</div>
+                    </label>
+
+                    <label>
+                        Password
+                       <div class="input-with-icon">
+   <span class="input-icon password-icon">🔒</span>
+    <input type="password" id="password" name="password" placeholder="Enter your password" required>
+</div>
+                    </label>
+
+                    
+
+                    <div class="form-row">
+                        <label class="checkbox-wrap">
+                            <input type="checkbox" checked>
+                            <span>Save Password</span>
+                        </label>
+                        <a href="#">Forgot password?</a>
+                    </div>
+
+                    <button type="submit" class="login-button">
+    Sign in <span class="button-arrow">→</span>
+</button>
+                    <p id="formMessage" class="form-message" aria-live="polite"></p>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        const form = document.getElementById('authorityLoginForm');
+        const message = document.getElementById('formMessage');
+
+        form.addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            const email = document.getElementById('email').value.trim();
+            const password = document.getElementById('password').value.trim();
+
+            if (!email || !password) {
+                message.textContent = 'Please enter both your work email and password.';
+                message.classList.add('error');
+                return;
+            }
+
+            message.textContent = 'Signing in...';
+            message.classList.remove('error');
+
+            setTimeout(function () {
+                window.location.href = 'authority-dashboard.html';
+            }, 500);
+        });
+    </script>
+</body>
+</html>

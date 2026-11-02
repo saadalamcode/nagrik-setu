@@ -1,0 +1,222 @@
+[
+    {
+        "ticket": "NS-1842",
+        "issue": "Pothole cluster near Sector 14",
+        "severity": "High",
+        "location": "Sector 14",
+        "reported": "Sep 9, 2024",
+        "affected": 47,
+        "status": "Resolved",
+        "department": "Road Maintenance",
+        "actionTaken": "Road inspection completed and repair work assigned."
+    },
+    {
+        "ticket": "NS-1839",
+        "issue": "Garbage overflow at Block C",
+        "severity": "Medium",
+        "location": "Block C, Ward 9",
+        "reported": "Sep 9, 2024",
+        "affected": 31,
+        "status": "Resolved",
+        "department": "Sanitation",
+        "actionTaken": "Collection team notified for immediate clearance."
+    },
+    {
+        "ticket": "NS-1831",
+        "issue": "Open drainage causing waterlogging",
+        "severity": "High",
+        "location": "Sector 15",
+        "reported": "Sep 8, 2024",
+        "affected": 83,
+        "status": "Reported",
+        "department": "Water & Drainage",
+        "actionTaken": "Drainage repair completed."
+    },
+    {
+        "ticket": "NS-1828",
+        "issue": "Broken streetlight on Park Road",
+        "severity": "Low",
+        "location": "Park Road",
+        "reported": "Sep 8, 2024",
+        "affected": 19,
+        "status": "Reported",
+        "department": "Electrical",
+        "actionTaken": ""
+    },
+    {
+        "ticket": "NS-1820",
+        "issue": "Road damage after drainage work",
+        "severity": "Medium",
+        "location": "Main Market",
+        "reported": "Sep 7, 2024",
+        "affected": 62,
+        "status": "In progress",
+        "department": "Road Maintenance",
+        "actionTaken": "Repair team assigned and road surface inspection started."
+    },
+    {
+        "ticket": "NS-1817",
+        "issue": "Overflowing garbage bins near community park",
+        "severity": "Medium",
+        "location": "Community Park, Ward 9",
+        "reported": "Sep 7, 2024",
+        "affected": 26,
+        "status": "Resolved",
+        "department": "Sanitation",
+        "actionTaken": "Waste was collected and bins were cleaned."
+    },
+    {
+        "ticket": "NS-1812",
+        "issue": "Water leakage near residential lane",
+        "severity": "High",
+        "location": "Sector 12",
+        "reported": "Sep 6, 2024",
+        "affected": 54,
+        "status": "In progress",
+        "department": "Water & Drainage",
+        "actionTaken": "Leak source identified and maintenance work initiated."
+    },
+    {
+        "ticket": "NS-1809",
+        "issue": "Damaged footpath near school entrance",
+        "severity": "Medium",
+        "location": "Sector 11",
+        "reported": "Sep 6, 2024",
+        "affected": 38,
+        "status": "Acknowledged",
+        "department": "Road Maintenance",
+        "actionTaken": "Site inspection scheduled."
+    },
+    {
+        "ticket": "NS-1804",
+        "issue": "Streetlight not working near bus stop",
+        "severity": "Low",
+        "location": "Central Bus Stop",
+        "reported": "Sep 5, 2024",
+        "affected": 17,
+        "status": "In progress",
+        "department": "Electrical",
+        "actionTaken": "Fault reported to the electrical maintenance team."
+    },
+    {
+        "ticket": "NS-1798",
+        "issue": "Waterlogging after heavy rainfall",
+        "severity": "High",
+        "location": "Sector 16",
+        "reported": "Sep 5, 2024",
+        "affected": 91,
+        "status": "Resolved",
+        "department": "Water & Drainage",
+        "actionTaken": "Blocked drain cleared and accumulated water removed."
+    },
+    {
+        "ticket": "NS-1793",
+        "issue": "Illegal dumping near vacant plot",
+        "severity": "Medium",
+        "location": "Sector 10",
+        "reported": "Sep 4, 2024",
+        "affected": 29,
+        "status": "Acknowledged",
+        "department": "Sanitation",
+        "actionTaken": "Inspection request forwarded to sanitation officers."
+    },
+    {
+        "ticket": "NS-1787",
+        "issue": "Broken road divider near junction",
+        "severity": "Low",
+        "location": "Main Junction",
+        "reported": "Sep 4, 2024",
+        "affected": 22,
+        "status": "Reported",
+        "department": "Road Maintenance",
+        "actionTaken": ""
+    },
+    {
+        "ticket": "NS-1781",
+        "issue": "Sewage overflow near residential area",
+        "severity": "High",
+        "location": "Sector 13",
+        "reported": "Sep 3, 2024",
+        "affected": 76,
+        "status": "In progress",
+        "department": "Water & Drainage",
+        "actionTaken": "Emergency drainage team dispatched to the location."
+    },
+    {
+        "ticket": "NS-1776",
+        "issue": "Multiple streetlights inactive",
+        "severity": "Medium",
+        "location": "Sector 9",
+        "reported": "Sep 3, 2024",
+        "affected": 44,
+        "status": "In progress",
+        "department": "Electrical",
+        "actionTaken": "Replacement bulbs installed. Awaiting field verification."
+    },
+    {
+        "ticket": "NS-1771",
+        "issue": "Garbage accumulation near market entrance",
+        "severity": "Medium",
+        "location": "Old Market",
+        "reported": "Sep 2, 2024",
+        "affected": 51,
+        "status": "Resolved",
+        "department": "Sanitation",
+        "actionTaken": "Waste removed and collection schedule updated."
+    },
+    {
+        "ticket": "NS-1768",
+        "issue": "Large pothole near hospital road",
+        "severity": "High",
+        "location": "Hospital Road",
+        "reported": "Sep 2, 2024",
+        "affected": 68,
+        "status": "In progress",
+        "department": "Road Maintenance",
+        "actionTaken": "Temporary road repair completed. Permanent repair pending."
+    },
+    {
+        "ticket": "NS-1762",
+        "issue": "Broken drainage cover",
+        "severity": "High",
+        "location": "Sector 8",
+        "reported": "Sep 1, 2024",
+        "affected": 35,
+        "status": "Acknowledged",
+        "department": "Water & Drainage",
+        "actionTaken": "Safety inspection requested and temporary barricade placed."
+    },
+    {
+        "ticket": "NS-1759",
+        "issue": "Damaged public bench in park",
+        "severity": "Low",
+        "location": "City Park",
+        "reported": "Aug 31, 2024",
+        "affected": 12,
+        "status": "Resolved",
+        "department": "Public Works",
+        "actionTaken": "Damaged bench repaired and inspected."
+    },
+    {
+        "ticket": "NS-1753",
+        "issue": "Uncollected waste from residential lane",
+        "severity": "Medium",
+        "location": "Sector 7",
+        "reported": "Aug 31, 2024",
+        "affected": 33,
+        "status": "In progress",
+        "department": "Sanitation",
+        "actionTaken": "Additional collection vehicle assigned to the area."
+    },
+    {
+        "ticket": "NS-1748",
+        "issue": "Road surface damaged near school",
+        "severity": "High",
+        "location": "Sector 6",
+        "reported": "Aug 30, 2024",
+        "affected": 58,
+        "status": "Awaiting verification",
+        "department": "Road Maintenance",
+        "actionTaken": "Repair work completed. Verification visit pending."
+    }
+]

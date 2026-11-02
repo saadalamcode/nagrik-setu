@@ -285,6 +285,15 @@ header.site {
     border-radius: 10px;
     overflow: hidden;
 }
+#issueRows {
+    height: 394px;
+    overflow-y: auto;
+    scrollbar-width: none;
+}
+
+#issueRows::-webkit-scrollbar {
+    display: none;
+}
 
 .table-header,
 .issue-row {
@@ -590,4 +599,161 @@ header.site {
     align-items: center;
     color: #91A8BA;
     font-size: 13px;
+}
+.popup-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background-color: rgba(12, 40, 64, 0.14);
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.popup-box {
+    position: relative;
+    width: 620px;
+    max-width: 90%;
+    background-color: #F3EEDC;
+    border: 1px solid #CFC5AA;
+    border-radius: 12px;
+    padding: 34px 38px;
+    box-shadow: 0 15px 35px rgba(12, 40, 64, 0.12);
+}
+
+.popup-close {
+    position: absolute;
+    top: 15px;
+    right: 18px;
+    border: none;
+    background: transparent;
+    color: #75705F;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.popup-close:hover {
+    color: #0C2840;
+}
+
+.popup-box h3 {
+    margin: 0 0 28px;
+    font-family: 'Fraunces', serif;
+    font-size: 27px;
+    font-weight: 600;
+    color: #0C2840;
+}
+
+.popup-box p {
+    margin: 8px 0;
+    font-size: 14px;
+    color: #4F4A40;
+}
+
+.popup-box strong {
+    color: #0C2840;
+}
+
+.popup-details {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 55px;
+    row-gap: 18px;
+    margin-bottom: 30px;
+}
+
+.popup-details p {
+    display: grid;
+    grid-template-columns: 75px 1fr;
+    align-items: start;
+    gap: 12px;
+    margin: 0;
+}
+
+.popup-details strong {
+    color: #0C2840;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.popup-details span {
+    color: #4F4A40;
+    font-size: 14px;
+    text-align: left;
+    line-height: 1.4;
+}
+
+.popup-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.popup-form label {
+    margin: 0 0 8px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #0C2840;
+}
+
+.popup-form select,
+.popup-form textarea {
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid #CFC5AA;
+    border-radius: 7px;
+    background-color: #FFFDF6;
+    color: #4F4A40;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+}
+
+.popup-form select {
+    height: 46px;
+    padding: 0 12px;
+    margin-bottom: 18px;
+    cursor: pointer;
+}
+
+.popup-form textarea {
+    min-height: 115px;
+    padding: 12px;
+    resize: vertical;
+    line-height: 1.5;
+}
+
+.popup-form select:focus,
+.popup-form textarea:focus {
+    outline: none;
+    border-color: #0C2840;
+}
+
+.save-update {
+    width: 100%;
+    margin-top: 18px;
+    padding: 12px 20px;
+    border: 1px solid #0C2840;
+    border-radius: 7px;
+    background-color: #0C2840;
+    color: #FFFDF6;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.save-update:hover {
+    background-color: #123A5C;
+}
+
+.update-success {
+    padding: 10px 0;
+}
+
+.update-success h3 {
+    margin-bottom: 20px;
+}
+
+.update-success p {
+    margin: 12px 0;
+    color: #4F4A40;
 }

@@ -1,0 +1,24 @@
+{
+  "name": "nagrik-setu",
+  "version": "1.0.0",
+  "description": "Nagrik-Setu is a digital platform that connects citizens with local authorities to make reporting and resolving civic issues easier and more transparent.",
+  "main": "authority-dashboard.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/saadalamcode/nagrik-setu.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/saadalamcode/nagrik-setu/issues"
+  },
+  "homepage": "https://github.com/saadalamcode/nagrik-setu#readme",
+  "dependencies": {
+    "express": "^5.3.0"
+  }
+}

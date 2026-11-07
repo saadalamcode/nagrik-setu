@@ -2204,3 +2204,40 @@ document.addEventListener("DOMContentLoaded", () => {
     );
 
 });
+
+
+
+async function submitComplaint() {
+
+    const complaint = {
+        name: "Rupesh",
+        category: "Road",
+        description: "Road has potholes",
+        location: "Gurugram"
+    };
+
+    try {
+
+        const response = await fetch("/api/complaints", {
+            method: "POST",
+
+            headers: {
+                "Content-Type": "application/json"
+            },
+
+            body: JSON.stringify(complaint)
+        });
+
+        const data = await response.json();
+
+        console.log(data);
+
+        alert("Complaint submitted successfully!");
+
+    } catch (error) {
+
+        console.error("Error:", error);
+        alert("Failed to submit complaint.");
+
+    }
+}

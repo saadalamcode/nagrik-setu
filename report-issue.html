@@ -107,7 +107,7 @@
                             JPG, PNG or WEBP · Max 10 MB
                         </small>
 
-                        <input type="file" accept="image/*">
+                        <input type="file"  id="issuePhoto" accept="image/*">
                     </label>
 
                 </div>
@@ -163,7 +163,29 @@
                     </div>
                 </div>
 
-                <button type="button" class="continue-button">
+                <div class="form-section">
+
+    <div class="section-label">
+        3. Location & details
+    </div>
+
+    <input
+        type="text"
+        id="issueLocation"
+        placeholder="Enter location"
+        required
+    >
+
+    <textarea
+        id="issueDescription"
+        placeholder="Describe the issue"
+        rows="4"
+        required
+    ></textarea>
+
+</div>
+
+                <button type="button" class="continue-button"  id="submitComplaint">
                     Continue →
                 </button>
 
@@ -296,6 +318,8 @@
         </div>
 
     </footer>
+
+<script src="report-issue.js"></script>
 
 </body>
 </html>

@@ -1,192 +1,562 @@
-/* =========================================================
-   NAGRIK SETU - FRONTEND INTERACTIVE JAVASCRIPT
-   DOM Manipulation + Event Handling + LocalStorage
-   No Backend Required
-========================================================= */
+/* ==========================================================
+   NAGRIK SETU
+   FRONTEND JAVASCRIPT
+   DOM + EVENT HANDLING + LOCAL STORAGE
+   NO BACKEND
+========================================================== */
 
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", () => {
 
-    console.log("Nagrik Setu JavaScript Loaded");
+    console.log("Nagrik Setu JS Loaded");
 
-    /* =====================================================
-       1. SELECT DOM ELEMENTS
-    ===================================================== */
+    /* ======================================================
+       BASIC DOM ELEMENTS
+    ====================================================== */
 
-    const filterButtons = document.querySelectorAll(".filter");
     const issueCards = document.querySelectorAll(".issue-card");
+    const filterButtons = document.querySelectorAll(".filter");
 
     const reportButtons = document.querySelectorAll(
         ".report-button, .nearby-report-button"
     );
 
-    const navLinks = document.querySelectorAll(".site-nav a");
+    const profileButton =
+        document.querySelector(".profile-circle");
 
-    const profile = document.querySelector(".profile-circle");
-
-    const howCard = document.querySelector(".how-card");
-
-    const issueGrid = document.querySelector(".issue-grid");
-
-    const searchInput = document.querySelector(".search");
+    const howCard =
+        document.querySelector(".how-card");
 
 
 
-    /* =====================================================
-       2. CREATE TOAST NOTIFICATION
-    ===================================================== */
+    /* ======================================================
+       TOAST NOTIFICATION
+    ====================================================== */
 
     function showToast(message, type = "success") {
 
-        const oldToast = document.querySelector(".ns-toast");
+        const oldToast =
+            document.querySelector(".ns-toast");
 
         if (oldToast) {
             oldToast.remove();
         }
 
-        const toast = document.createElement("div");
+        const toast =
+            document.createElement("div");
 
         toast.className = "ns-toast";
 
         toast.textContent = message;
 
-        toast.style.position = "fixed";
-        toast.style.bottom = "25px";
-        toast.style.right = "25px";
-        toast.style.padding = "14px 22px";
-        toast.style.background =
-            type === "error" ? "#dc2626" : "#111827";
+        Object.assign(toast.style, {
 
-        toast.style.color = "white";
-        toast.style.borderRadius = "10px";
-        toast.style.fontSize = "14px";
-        toast.style.fontWeight = "600";
-        toast.style.zIndex = "99999";
-        toast.style.boxShadow = "0 8px 30px rgba(0,0,0,0.25)";
-        toast.style.opacity = "0";
-        toast.style.transform = "translateY(20px)";
-        toast.style.transition = "all 0.3s ease";
+            position: "fixed",
+            bottom: "25px",
+            right: "25px",
+            zIndex: "99999",
+
+            background:
+                type === "error"
+                    ? "#c0392b"
+                    : "#123b5d",
+
+            color: "#ffffff",
+
+            padding: "14px 20px",
+
+            borderRadius: "8px",
+
+            fontSize: "14px",
+
+            fontWeight: "600",
+
+            boxShadow:
+                "0 8px 25px rgba(0,0,0,0.2)",
+
+            opacity: "0",
+
+            transform:
+                "translateY(20px)",
+
+            transition:
+                "all 0.3s ease"
+
+        });
 
         document.body.appendChild(toast);
 
         setTimeout(() => {
+
             toast.style.opacity = "1";
-            toast.style.transform = "translateY(0)";
+            toast.style.transform =
+                "translateY(0)";
+
         }, 10);
 
         setTimeout(() => {
 
             toast.style.opacity = "0";
-            toast.style.transform = "translateY(20px)";
+            toast.style.transform =
+                "translateY(20px)";
 
             setTimeout(() => {
                 toast.remove();
             }, 300);
 
-        }, 3000);
+        }, 2500);
     }
 
 
 
-    /* =====================================================
-       3. FILTER ISSUES
-    ===================================================== */
+    /* ======================================================
+       1. CREATE SEARCH BAR
+    ====================================================== */
+
+    const issueGrid =
+        document.querySelector(".issue-grid");
+
+    if (issueGrid) {
+
+        const searchWrapper =
+            document.createElement("div");
+
+        searchWrapper.className =
+            "js-search-wrapper";
+
+        Object.assign(searchWrapper.style, {
+
+            width: "100%",
+
+            marginBottom: "20px",
+
+            position: "relative"
+
+        });
+
+
+
+        const searchIcon =
+            document.createElement("span");
+
+        searchIcon.textContent = "🔍";
+
+        Object.assign(searchIcon.style, {
+
+            position: "absolute",
+
+            left: "15px",
+
+            top: "50%",
+
+            transform: "translateY(-50%)",
+
+            fontSize: "16px",
+
+            pointerEvents: "none"
+
+        });
+
+
+
+        const searchInput =
+            document.createElement("input");
+
+        searchInput.type = "text";
+
+        searchInput.id =
+            "issueSearch";
+
+        searchInput.placeholder =
+            "Search issues, locations, categories...";
+
+
+
+        Object.assign(searchInput.style, {
+
+            width: "100%",
+
+            boxSizing: "border-box",
+
+            padding: "14px 18px 14px 45px",
+
+            border: "1px solid #d8cdb7",
+
+            borderRadius: "10px",
+
+            outline: "none",
+
+            background: "#ffffff",
+
+            fontSize: "15px",
+
+            fontFamily: "Inter, sans-serif",
+
+            color: "#123b5d"
+
+        });
+
+
+
+        searchInput.addEventListener(
+            "focus",
+            () => {
+
+                searchInput.style.borderColor =
+                    "#123b5d";
+
+                searchInput.style.boxShadow =
+                    "0 0 0 3px rgba(18,59,93,0.10)";
+
+            }
+        );
+
+
+
+        searchInput.addEventListener(
+            "blur",
+            () => {
+
+                searchInput.style.borderColor =
+                    "#d8cdb7";
+
+                searchInput.style.boxShadow =
+                    "none";
+
+            }
+        );
+
+
+
+        searchWrapper.appendChild(
+            searchIcon
+        );
+
+        searchWrapper.appendChild(
+            searchInput
+        );
+
+
+
+        /*
+           Insert search bar immediately
+           before issue filters
+        */
+
+        const filterContainer =
+            document.querySelector(
+                ".issue-filters"
+            );
+
+        if (filterContainer) {
+
+            filterContainer.parentNode.insertBefore(
+                searchWrapper,
+                filterContainer
+            );
+
+        } else {
+
+            issueGrid.parentNode.insertBefore(
+                searchWrapper,
+                issueGrid
+            );
+
+        }
+
+
+
+        /* ==================================================
+           SEARCH EVENT
+        ================================================== */
+
+        searchInput.addEventListener(
+            "input",
+            function () {
+
+                const search =
+                    this.value
+                        .trim()
+                        .toLowerCase();
+
+                let count = 0;
+
+                issueCards.forEach(card => {
+
+                    const cardText =
+                        card.textContent
+                            .toLowerCase();
+
+                    if (
+                        cardText.includes(search)
+                    ) {
+
+                        card.style.display =
+                            "";
+
+                        count++;
+
+                    } else {
+
+                        card.style.display =
+                            "none";
+
+                    }
+
+                });
+
+
+
+                updateSearchResult(
+                    search,
+                    count
+                );
+
+            }
+        );
+
+    }
+
+
+
+    /* ======================================================
+       SEARCH RESULT TEXT
+    ====================================================== */
+
+    function updateSearchResult(
+        search,
+        count
+    ) {
+
+        let result =
+            document.querySelector(
+                "#search-result"
+            );
+
+        if (!result) {
+
+            result =
+                document.createElement("div");
+
+            result.id =
+                "search-result";
+
+            Object.assign(result.style, {
+
+                marginTop: "7px",
+
+                fontSize: "13px",
+
+                color: "#777"
+
+            });
+
+            const wrapper =
+                document.querySelector(
+                    ".js-search-wrapper"
+                );
+
+            if (wrapper) {
+                wrapper.appendChild(result);
+            }
+
+        }
+
+
+
+        if (!search) {
+
+            result.textContent = "";
+
+        } else {
+
+            result.textContent =
+                `${count} issue${count !== 1 ? "s" : ""} found`;
+
+        }
+
+    }
+
+
+
+    /* ======================================================
+       2. FILTER BUTTONS
+    ====================================================== */
 
     filterButtons.forEach(button => {
 
-        button.addEventListener("click", function () {
+        button.addEventListener(
+            "click",
+            function () {
 
-            // Remove active class from all buttons
-            filterButtons.forEach(btn => {
-                btn.classList.remove("active");
-            });
+                /*
+                   Remove active
+                   from every button
+                */
 
-            // Add active class to clicked button
-            this.classList.add("active");
+                filterButtons.forEach(btn => {
+                    btn.classList.remove("active");
+                });
 
-            const selectedCategory =
-                this.textContent.trim().toLowerCase();
 
-            let visibleCount = 0;
 
-            issueCards.forEach(card => {
+                /*
+                   Add active to
+                   clicked button
+                */
 
-                const categoryElement =
-                    card.querySelector(".issue-meta");
+                this.classList.add("active");
 
-                const titleElement =
-                    card.querySelector(".issue-title");
 
-                if (!categoryElement && !titleElement) {
-                    return;
-                }
 
-                const cardText =
-                    card.textContent.toLowerCase();
+                const category =
+                    this.textContent
+                        .trim()
+                        .toLowerCase();
 
-                let showCard = false;
 
-                if (selectedCategory === "all") {
-                    showCard = true;
-                }
-                else {
-                    showCard =
-                        cardText.includes(selectedCategory);
-                }
 
-                if (showCard) {
+                let count = 0;
 
-                    card.style.display = "";
 
-                    visibleCount++;
 
-                    card.style.opacity = "0";
+                issueCards.forEach(card => {
 
-                    setTimeout(() => {
-                        card.style.transition =
-                            "opacity 0.3s ease";
+                    const cardText =
+                        card.textContent
+                            .toLowerCase();
 
-                        card.style.opacity = "1";
-                    }, 50);
 
-                }
-                else {
 
-                    card.style.display = "none";
+                    let shouldShow = false;
 
-                }
 
-            });
 
-            localStorage.setItem(
-                "selectedIssueFilter",
-                selectedCategory
-            );
+                    if (
+                        category === "all"
+                    ) {
 
-            showToast(
-                `${selectedCategory.toUpperCase()} issues: ${visibleCount}`
-            );
-        });
+                        shouldShow = true;
+
+                    } else {
+
+                        /*
+                           Handles:
+                           Potholes
+                           Open sewers
+                           Streetlights
+                           Garbage
+
+                           while your card contains:
+                           Potholes
+                           Open sewer
+                           Streetlight
+                           Garbage
+                        */
+
+                        shouldShow =
+                            cardText.includes(
+                                category
+                            );
+
+
+
+                        /*
+                           Singular/plural handling
+                        */
+
+                        if (!shouldShow) {
+
+                            const singular =
+                                category.endsWith("s")
+                                    ? category.slice(0, -1)
+                                    : category;
+
+                            shouldShow =
+                                cardText.includes(
+                                    singular
+                                );
+
+                        }
+
+                    }
+
+
+
+                    if (shouldShow) {
+
+                        card.style.display =
+                            "";
+
+                        card.style.opacity =
+                            "0";
+
+                        setTimeout(() => {
+
+                            card.style.transition =
+                                "opacity 0.3s ease";
+
+                            card.style.opacity =
+                                "1";
+
+                        }, 20);
+
+                        count++;
+
+                    } else {
+
+                        card.style.display =
+                            "none";
+
+                    }
+
+                });
+
+
+
+                /*
+                   Save selected filter
+                */
+
+                localStorage.setItem(
+                    "nagrikFilter",
+                    category
+                );
+
+
+
+                showToast(
+                    `${count} ${category} issue${count !== 1 ? "s" : ""}`
+                );
+
+            }
+        );
 
     });
 
 
 
-    /* =====================================================
-       4. RESTORE LAST SELECTED FILTER
-    ===================================================== */
+    /* ======================================================
+       3. RESTORE FILTER
+    ====================================================== */
 
     const savedFilter =
-        localStorage.getItem("selectedIssueFilter");
+        localStorage.getItem(
+            "nagrikFilter"
+        );
 
     if (savedFilter) {
 
         filterButtons.forEach(button => {
 
             if (
-                button.textContent.trim().toLowerCase()
+                button.textContent
+                    .trim()
+                    .toLowerCase()
                 === savedFilter
             ) {
+
                 button.click();
+
             }
 
         });
@@ -195,210 +565,246 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-    /* =====================================================
-       5. LIVE SEARCH
-    ===================================================== */
-
-    let dynamicSearch = searchInput;
-
-    /*
-       If your current HTML does not have an input with
-       class="search", create one.
-    */
-
-    if (!dynamicSearch) {
-
-        const searchContainer =
-            document.querySelector(".search");
-
-        if (searchContainer &&
-            searchContainer.tagName !== "INPUT") {
-
-            dynamicSearch =
-                document.createElement("input");
-
-            dynamicSearch.type = "text";
-            dynamicSearch.placeholder =
-                "Search issues...";
-            dynamicSearch.className =
-                "dynamic-search";
-
-            dynamicSearch.style.padding = "10px";
-            dynamicSearch.style.border =
-                "1px solid #ddd";
-            dynamicSearch.style.borderRadius =
-                "8px";
-
-            searchContainer.appendChild(dynamicSearch);
-        }
-    }
-
-
-
-    /* =====================================================
-       6. SEARCH ISSUE CARDS
-    ===================================================== */
-
-    if (
-        dynamicSearch &&
-        dynamicSearch.tagName === "INPUT"
-    ) {
-
-        dynamicSearch.addEventListener(
-            "input",
-            function () {
-
-                const searchValue =
-                    this.value.toLowerCase().trim();
-
-                issueCards.forEach(card => {
-
-                    const cardText =
-                        card.textContent.toLowerCase();
-
-                    if (
-                        cardText.includes(searchValue)
-                    ) {
-
-                        card.style.display = "";
-
-                    }
-                    else {
-
-                        card.style.display = "none";
-
-                    }
-
-                });
-
-            }
-        );
-
-    }
-
-
-
-    /* =====================================================
-       7. REPORT ISSUE BUTTON
-    ===================================================== */
+    /* ======================================================
+       4. REPORT ISSUE BUTTON
+    ====================================================== */
 
     reportButtons.forEach(button => {
 
-        button.addEventListener("click", function (event) {
+        button.addEventListener(
+            "click",
+            function (event) {
 
-            event.preventDefault();
+                event.preventDefault();
 
-            window.location.href =
-                "report-issue.html";
+                showToast(
+                    "Opening Report Issue..."
+                );
 
-        });
+                setTimeout(() => {
+
+                    window.location.href =
+                        "report-issue.html";
+
+                }, 300);
+
+            }
+        );
 
     });
 
 
 
-    /* =====================================================
-       8. VIEW ISSUE BUTTONS
-    ===================================================== */
+    /* ======================================================
+       5. VIEW ISSUE MODAL
+    ====================================================== */
 
     const viewIssueLinks =
         document.querySelectorAll(
-            ".issue-card a"
+            ".issue-card .issue-footer a"
         );
+
+
 
     viewIssueLinks.forEach(link => {
 
-        link.addEventListener("click", function (event) {
+        link.addEventListener(
+            "click",
+            function (event) {
 
-            event.preventDefault();
+                event.preventDefault();
 
-            const card =
-                this.closest(".issue-card");
+                event.stopPropagation();
 
-            if (!card) return;
+                const card =
+                    this.closest(
+                        ".issue-card"
+                    );
 
-            openIssueModal(card);
+                if (card) {
 
-        });
+                    openIssueModal(
+                        card
+                    );
+
+                }
+
+            }
+        );
 
     });
 
 
 
-    /* =====================================================
-       9. CREATE ISSUE MODAL
-    ===================================================== */
+    /* ======================================================
+       OPEN ISSUE MODAL
+    ====================================================== */
 
     function openIssueModal(card) {
 
         const title =
-            card.querySelector(".issue-title")?.textContent
-            || "Unknown Issue";
+            card.querySelector("h3")
+                ?.textContent
+                .trim()
+            || "Issue";
+
+
 
         const location =
-            card.querySelector(".issue-location")?.textContent
+            card.querySelector(
+                ".issue-location"
+            )
+                ?.textContent
+                .trim()
             || "Location unavailable";
 
-        const description =
-            card.querySelector(".issue-meta")?.textContent
-            || "Issue reported by a citizen.";
 
-        const status =
-            card.querySelector(".issue-status")?.textContent
-            || "Reported";
+
+        const issueId =
+            card.querySelector(
+                ".issue-id"
+            )
+                ?.textContent
+                .trim()
+            || "";
+
+
 
         const priority =
-            card.querySelector(".issue-priority")?.textContent
-            || "Normal";
+            card.querySelector(
+                ".issue-priority"
+            )
+                ?.textContent
+                .trim()
+            || "";
+
+
+
+        const status =
+            card.querySelector(
+                ".issue-status"
+            )
+                ?.textContent
+                .trim()
+            || "";
+
+
+
+        const image =
+            card.querySelector(
+                ".issue-image img"
+            )?.src
+            || "";
+
+
+
+        /*
+           Your HTML has:
+           ♧ 47 affected
+           ♧ 12 updates
+
+           So we extract them directly.
+        */
+
+        const footerSpans =
+            card.querySelectorAll(
+                ".issue-footer span"
+            );
+
+
 
         const affected =
-            card.querySelector(".affected-count")
+            footerSpans[0]
                 ?.textContent
-            || "0";
+                .trim()
+            || "0 affected";
+
+
 
         const updates =
-            card.querySelector(".updates-count")
+            footerSpans[1]
                 ?.textContent
-            || "0";
+                .trim()
+            || "0 updates";
 
 
 
-        // Create overlay
+        /* ----------------------------------------------
+           CREATE OVERLAY
+        ---------------------------------------------- */
+
         const overlay =
             document.createElement("div");
 
         overlay.className =
-            "issue-modal-overlay";
-
-        overlay.style.position = "fixed";
-        overlay.style.top = "0";
-        overlay.style.left = "0";
-        overlay.style.width = "100%";
-        overlay.style.height = "100%";
-        overlay.style.background =
-            "rgba(0,0,0,0.6)";
-        overlay.style.display = "flex";
-        overlay.style.alignItems = "center";
-        overlay.style.justifyContent = "center";
-        overlay.style.zIndex = "10000";
-        overlay.style.padding = "20px";
+            "ns-modal-overlay";
 
 
 
-        // Create modal
+        Object.assign(
+            overlay.style,
+            {
+
+                position: "fixed",
+
+                inset: "0",
+
+                background:
+                    "rgba(0,0,0,0.60)",
+
+                display: "flex",
+
+                alignItems:
+                    "center",
+
+                justifyContent:
+                    "center",
+
+                padding: "20px",
+
+                zIndex: "99999"
+
+            }
+        );
+
+
+
+        /* ----------------------------------------------
+           CREATE MODAL
+        ---------------------------------------------- */
+
         const modal =
             document.createElement("div");
 
-        modal.style.background = "white";
-        modal.style.maxWidth = "600px";
-        modal.style.width = "100%";
-        modal.style.maxHeight = "90vh";
-        modal.style.overflowY = "auto";
-        modal.style.borderRadius = "16px";
-        modal.style.padding = "28px";
-        modal.style.position = "relative";
-        modal.style.boxShadow =
-            "0 20px 60px rgba(0,0,0,0.3)";
+
+
+        Object.assign(
+            modal.style,
+            {
+
+                width: "100%",
+
+                maxWidth: "650px",
+
+                maxHeight: "90vh",
+
+                overflowY: "auto",
+
+                background: "#ffffff",
+
+                borderRadius: "15px",
+
+                padding: "25px",
+
+                position: "relative",
+
+                boxSizing: "border-box",
+
+                boxShadow:
+                    "0 20px 60px rgba(0,0,0,0.3)"
+
+            }
+        );
 
 
 
@@ -407,47 +813,48 @@ document.addEventListener("DOMContentLoaded", function () {
             <button id="closeIssueModal"
                 style="
                     position:absolute;
-                    right:18px;
-                    top:15px;
+                    top:12px;
+                    right:15px;
                     border:none;
                     background:none;
-                    font-size:25px;
+                    font-size:28px;
                     cursor:pointer;
+                    color:#555;
                 ">
                 ×
             </button>
 
-            <h2 style="margin-bottom:10px;">
-                ${title}
-            </h2>
 
-            <p style="
-                color:#6b7280;
-                margin-bottom:20px;
-            ">
-                ${location}
-            </p>
+            <img src="${image}"
+                style="
+                    width:100%;
+                    max-height:280px;
+                    object-fit:cover;
+                    border-radius:10px;
+                    margin-bottom:18px;
+                ">
+
 
             <div style="
                 display:flex;
-                gap:10px;
+                gap:8px;
                 flex-wrap:wrap;
-                margin-bottom:20px;
+                margin-bottom:12px;
             ">
 
                 <span style="
-                    background:#fef3c7;
-                    padding:7px 12px;
+                    padding:6px 10px;
                     border-radius:20px;
+                    background:#fff3cd;
                     font-size:13px;
                 ">
                     ${priority}
                 </span>
 
                 <span style="
-                    background:#dcfce7;
-                    padding:7px 12px;
+                    padding:6px 10px;
                     border-radius:20px;
+                    background:#e8f5e9;
                     font-size:13px;
                 ">
                     ${status}
@@ -455,912 +862,380 @@ document.addEventListener("DOMContentLoaded", function () {
 
             </div>
 
-            <h3>Issue Information</h3>
 
-            <p style="margin-top:8px;">
-                ${description}
+            <h2 style="
+                color:#123b5d;
+                margin:8px 0;
+            ">
+                ${title}
+            </h2>
+
+
+            <p style="
+                color:#777;
+                margin-bottom:5px;
+            ">
+                ${location}
             </p>
 
-            <hr style="margin:25px 0;">
+
+            <p style="
+                color:#888;
+                font-size:13px;
+            ">
+                ${issueId}
+            </p>
+
+
+            <hr style="
+                margin:20px 0;
+                border:none;
+                border-top:1px solid #eee;
+            ">
+
+
+            <h3>
+                Issue Information
+            </h3>
+
 
             <div style="
                 display:flex;
-                justify-content:space-between;
-                gap:20px;
+                gap:40px;
+                margin-top:15px;
             ">
 
                 <div>
-                    <strong>${affected}</strong>
+                    <strong>
+                        ${affected}
+                    </strong>
+
                     <br>
-                    <small>People affected</small>
+
+                    <small>
+                        People affected
+                    </small>
                 </div>
+
 
                 <div>
-                    <strong>${updates}</strong>
+                    <strong>
+                        ${updates}
+                    </strong>
+
                     <br>
-                    <small>Updates</small>
+
+                    <small>
+                        Updates
+                    </small>
                 </div>
 
             </div>
 
-            <hr style="margin:25px 0;">
 
-            <h3>Issue Progress</h3>
+            <hr style="
+                margin:20px 0;
+                border:none;
+                border-top:1px solid #eee;
+            ">
 
-            <div style="margin-top:15px;">
 
-                <div style="
-                    display:flex;
-                    align-items:center;
-                    gap:10px;
-                    margin-bottom:12px;
-                ">
-                    <span>●</span>
-                    <span>Issue Reported</span>
-                </div>
+            <h3>
+                Issue Progress
+            </h3>
 
-                <div style="
-                    display:flex;
-                    align-items:center;
-                    gap:10px;
-                    margin-bottom:12px;
-                ">
-                    <span>●</span>
-                    <span>Authority Notified</span>
-                </div>
 
-                <div style="
-                    display:flex;
-                    align-items:center;
-                    gap:10px;
-                    margin-bottom:12px;
-                ">
-                    <span>●</span>
-                    <span>Inspection</span>
-                </div>
+            <div style="
+                margin-top:15px;
+                line-height:2.3;
+            ">
 
-                <div style="
-                    display:flex;
-                    align-items:center;
-                    gap:10px;
-                    margin-bottom:12px;
-                ">
-                    <span>●</span>
-                    <span>Work Started</span>
-                </div>
+                <div>🟢 Issue Reported</div>
 
-                <div style="
-                    display:flex;
-                    align-items:center;
-                    gap:10px;
-                ">
-                    <span>●</span>
-                    <span>Resolved</span>
-                </div>
+                <div>🟢 Authority Notified</div>
+
+                <div>🟢 Inspection</div>
+
+                <div>🟡 Work Started</div>
+
+                <div>⚪ Resolved</div>
 
             </div>
 
-            <button id="affectedButton"
+
+            <button id="affectsMeButton"
                 style="
                     width:100%;
-                    margin-top:25px;
+                    margin-top:20px;
                     padding:12px;
                     border:none;
                     border-radius:8px;
-                    background:#111827;
+                    background:#123b5d;
                     color:white;
                     cursor:pointer;
                     font-weight:600;
                 ">
-                This affects me
+                ♡ This affects me
             </button>
 
         `;
 
-        overlay.appendChild(modal);
-
-        document.body.appendChild(overlay);
 
 
+        overlay.appendChild(
+            modal
+        );
 
-        /* CLOSE MODAL */
+        document.body.appendChild(
+            overlay
+        );
 
-        document
-            .getElementById("closeIssueModal")
-            .addEventListener("click", function () {
+
+
+        /* ----------------------------------------------
+           CLOSE BUTTON
+        ---------------------------------------------- */
+
+        const closeButton =
+            document.querySelector(
+                "#closeIssueModal"
+            );
+
+
+
+        closeButton.addEventListener(
+            "click",
+            () => {
 
                 overlay.remove();
 
-            });
+            }
+        );
 
 
 
-        /* CLOSE WHEN CLICKING OUTSIDE */
+        /* ----------------------------------------------
+           CLICK OUTSIDE
+        ---------------------------------------------- */
 
         overlay.addEventListener(
             "click",
-            function (event) {
-
-                if (event.target === overlay) {
-                    overlay.remove();
-                }
-
-            }
-        );
-
-
-
-        /* ESC KEY */
-
-        document.addEventListener(
-            "keydown",
-            function closeOnEscape(event) {
-
-                if (event.key === "Escape") {
-
-                    overlay.remove();
-
-                    document.removeEventListener(
-                        "keydown",
-                        closeOnEscape
-                    );
-
-                }
-
-            }
-        );
-
-
-
-        /* AFFECTED BUTTON */
-
-        const affectedButton =
-            document.getElementById(
-                "affectedButton"
-            );
-
-        affectedButton.addEventListener(
-            "click",
-            function () {
-
-                const issueTitle =
-                    title;
-
-                const key =
-                    "affected_" + issueTitle;
-
-                const alreadyVoted =
-                    localStorage.getItem(key);
-
-                if (alreadyVoted) {
-
-                    showToast(
-                        "You already marked this issue.",
-                        "error"
-                    );
-
-                    return;
-                }
-
-                localStorage.setItem(
-                    key,
-                    "true"
-                );
-
-                affectedButton.textContent =
-                    "✓ Marked as affecting you";
-
-                affectedButton.style.background =
-                    "#16a34a";
-
-                showToast(
-                    "Your impact has been recorded."
-                );
-
-            }
-        );
-
-    }
-
-
-
-    /* =====================================================
-       10. PROFILE BUTTON
-    ===================================================== */
-
-    if (profile) {
-
-        profile.style.cursor = "pointer";
-
-        profile.addEventListener(
-            "click",
-            function () {
-
-                openProfileMenu();
-
-            }
-        );
-
-    }
-
-
-
-    /* =====================================================
-       11. PROFILE DROPDOWN
-    ===================================================== */
-
-    function openProfileMenu() {
-
-        const existing =
-            document.querySelector(
-                ".profile-dropdown"
-            );
-
-        if (existing) {
-
-            existing.remove();
-
-            return;
-
-        }
-
-
-
-        const menu =
-            document.createElement("div");
-
-        menu.className =
-            "profile-dropdown";
-
-        menu.style.position =
-            "fixed";
-
-        menu.style.top =
-            "75px";
-
-        menu.style.right =
-            "25px";
-
-        menu.style.width =
-            "230px";
-
-        menu.style.background =
-            "white";
-
-        menu.style.borderRadius =
-            "12px";
-
-        menu.style.padding =
-            "15px";
-
-        menu.style.boxShadow =
-            "0 10px 30px rgba(0,0,0,0.15)";
-
-        menu.style.zIndex =
-            "9999";
-
-
-
-        menu.innerHTML = `
-
-            <div style="
-                padding:10px;
-                border-bottom:1px solid #eee;
-            ">
-
-                <strong>Rupesh</strong>
-
-                <br>
-
-                <small style="color:#777;">
-                    Citizen Account
-                </small>
-
-            </div>
-
-            <button id="myReports"
-                style="
-                    width:100%;
-                    padding:10px;
-                    margin-top:8px;
-                    border:none;
-                    background:none;
-                    text-align:left;
-                    cursor:pointer;
-                ">
-                📋 My Reports
-            </button>
-
-            <button id="savedIssues"
-                style="
-                    width:100%;
-                    padding:10px;
-                    border:none;
-                    background:none;
-                    text-align:left;
-                    cursor:pointer;
-                ">
-                ⭐ Saved Issues
-            </button>
-
-            <button id="logoutButton"
-                style="
-                    width:100%;
-                    padding:10px;
-                    border:none;
-                    background:none;
-                    text-align:left;
-                    cursor:pointer;
-                ">
-                🚪 Logout
-            </button>
-
-        `;
-
-        document.body.appendChild(menu);
-
-
-
-        document
-            .getElementById("myReports")
-            .addEventListener(
-                "click",
-                function () {
-
-                    showToast(
-                        "My Reports feature opened."
-                    );
-
-                }
-            );
-
-
-
-        document
-            .getElementById("savedIssues")
-            .addEventListener(
-                "click",
-                function () {
-
-                    showToast(
-                        "Saved issues opened."
-                    );
-
-                }
-            );
-
-
-
-        document
-            .getElementById("logoutButton")
-            .addEventListener(
-                "click",
-                function () {
-
-                    localStorage.removeItem(
-                        "nagrikUser"
-                    );
-
-                    showToast(
-                        "Logged out successfully."
-                    );
-
-                    menu.remove();
-
-                }
-            );
-
-    }
-
-
-
-    /* =====================================================
-       12. ACTIVE NAVIGATION
-    ===================================================== */
-
-    const currentPage =
-        window.location.pathname
-            .split("/")
-            .pop()
-            .toLowerCase();
-
-
-
-    navLinks.forEach(link => {
-
-        const linkPage =
-            link.getAttribute("href");
-
-        if (!linkPage) return;
-
-        const cleanPage =
-            linkPage.split("#")[0]
-                .toLowerCase();
-
-        if (
-            cleanPage === currentPage
-        ) {
-
-            link.classList.add("active");
-
-        }
-
-    });
-
-
-
-    /* =====================================================
-       13. HOW DOES NAGRIK SETU WORK
-    ===================================================== */
-
-    if (howCard) {
-
-        howCard.style.cursor = "pointer";
-
-        howCard.addEventListener(
-            "click",
-            function () {
-
-                showHowNagrikSetuWorks();
-
-            }
-        );
-
-    }
-
-
-
-    function showHowNagrikSetuWorks() {
-
-        const overlay =
-            document.createElement("div");
-
-        overlay.style.position =
-            "fixed";
-
-        overlay.style.inset =
-            "0";
-
-        overlay.style.background =
-            "rgba(0,0,0,0.6)";
-
-        overlay.style.display =
-            "flex";
-
-        overlay.style.alignItems =
-            "center";
-
-        overlay.style.justifyContent =
-            "center";
-
-        overlay.style.zIndex =
-            "10000";
-
-
-
-        const modal =
-            document.createElement("div");
-
-        modal.style.background =
-            "white";
-
-        modal.style.width =
-            "90%";
-
-        modal.style.maxWidth =
-            "550px";
-
-        modal.style.padding =
-            "30px";
-
-        modal.style.borderRadius =
-            "16px";
-
-
-
-        modal.innerHTML = `
-
-            <h2>
-                How does Nagrik Setu work?
-            </h2>
-
-            <br>
-
-            <div>
-
-                <p>
-                    📝 <strong>1. Report</strong>
-                </p>
-
-                <p>
-                    Citizens report civic problems
-                    in their locality.
-                </p>
-
-                <br>
-
-                <p>
-                    📍 <strong>2. Track</strong>
-                </p>
-
-                <p>
-                    Track the progress of your
-                    reported issue.
-                </p>
-
-                <br>
-
-                <p>
-                    🏛️ <strong>3. Authority Response</strong>
-                </p>
-
-                <p>
-                    Relevant authorities can
-                    acknowledge and process issues.
-                </p>
-
-                <br>
-
-                <p>
-                    ✅ <strong>4. Resolution</strong>
-                </p>
-
-                <p>
-                    Citizens can see when the
-                    issue has been resolved.
-                </p>
-
-            </div>
-
-            <button id="closeHow"
-                style="
-                    margin-top:20px;
-                    width:100%;
-                    padding:12px;
-                    border:none;
-                    border-radius:8px;
-                    background:#111827;
-                    color:white;
-                    cursor:pointer;
-                ">
-                Close
-            </button>
-
-        `;
-
-        overlay.appendChild(modal);
-
-        document.body.appendChild(overlay);
-
-
-
-        document
-            .getElementById("closeHow")
-            .addEventListener(
-                "click",
-                () => overlay.remove()
-            );
-
-
-
-        overlay.addEventListener(
-            "click",
-            function (event) {
+            event => {
 
                 if (
                     event.target === overlay
                 ) {
+
                     overlay.remove();
+
                 }
 
             }
         );
 
-    }
+
+
+        /* ----------------------------------------------
+           ESC KEY
+        ---------------------------------------------- */
+
+        function escapeHandler(event) {
+
+            if (
+                event.key === "Escape"
+            ) {
+
+                overlay.remove();
+
+                document.removeEventListener(
+                    "keydown",
+                    escapeHandler
+                );
+
+            }
+
+        }
 
 
 
-    /* =====================================================
-       14. FOOTER LINK HANDLING
-    ===================================================== */
-
-    const footerLinks =
-        document.querySelectorAll(
-            "footer a"
+        document.addEventListener(
+            "keydown",
+            escapeHandler
         );
 
-    footerLinks.forEach(link => {
 
-        const href =
-            link.getAttribute("href");
+
+        /* ==================================================
+           THIS AFFECTS ME
+        ================================================== */
+
+        const affectsButton =
+            document.querySelector(
+                "#affectsMeButton"
+            );
+
+
+
+        const storageKey =
+            "affectsMe_" +
+            issueId;
+
+
 
         if (
-            href === "#" ||
-            href === "" ||
-            href === null
+            localStorage.getItem(
+                storageKey
+            )
         ) {
 
-            link.addEventListener(
-                "click",
-                function (event) {
+            affectsButton.textContent =
+                "✓ This affects me";
 
-                    event.preventDefault();
+            affectsButton.style.background =
+                "#198754";
 
-                    const text =
-                        this.textContent.trim();
+        }
+
+
+
+        affectsButton.addEventListener(
+            "click",
+            () => {
+
+                if (
+                    localStorage.getItem(
+                        storageKey
+                    )
+                ) {
+
+                    localStorage.removeItem(
+                        storageKey
+                    );
+
+                    affectsButton.textContent =
+                        "♡ This affects me";
+
+                    affectsButton.style.background =
+                        "#123b5d";
 
                     showToast(
-                        `${text} page coming soon.`
+                        "Removed from affected issues"
+                    );
+
+                } else {
+
+                    localStorage.setItem(
+                        storageKey,
+                        "true"
+                    );
+
+                    affectsButton.textContent =
+                        "✓ This affects me";
+
+                    affectsButton.style.background =
+                        "#198754";
+
+                    showToast(
+                        "Issue marked as affecting you"
                     );
 
                 }
-            );
-
-        }
-
-    });
-
-
-
-    /* =====================================================
-       15. KEYBOARD SHORTCUT
-    ===================================================== */
-
-    document.addEventListener(
-        "keydown",
-        function (event) {
-
-            /*
-             Press "/" to focus search
-            */
-
-            if (
-                event.key === "/" &&
-                document.activeElement.tagName !== "INPUT"
-            ) {
-
-                event.preventDefault();
-
-                if (dynamicSearch) {
-
-                    dynamicSearch.focus();
-
-                }
 
             }
-
-
-
-            /*
-             Press Escape to clear search
-            */
-
-            if (
-                event.key === "Escape" &&
-                dynamicSearch
-            ) {
-
-                dynamicSearch.value = "";
-
-                issueCards.forEach(card => {
-                    card.style.display = "";
-                });
-
-            }
-
-        }
-    );
-
-
-
-    /* =====================================================
-       16. ANIMATED STATISTICS
-    ===================================================== */
-
-    const statNumbers =
-        document.querySelectorAll(
-            ".stat-number"
         );
-
-
-
-    function animateNumber(element) {
-
-        const original =
-            element.textContent.trim();
-
-        const numericValue =
-            parseFloat(
-                original.replace(/,/g, "")
-            );
-
-        if (isNaN(numericValue)) {
-            return;
-        }
-
-        const hasDecimal =
-            original.includes(".");
-
-        const duration =
-            1200;
-
-        const start =
-            performance.now();
-
-
-
-        function update(currentTime) {
-
-            const progress =
-                Math.min(
-                    (currentTime - start)
-                    / duration,
-                    1
-                );
-
-            const currentValue =
-                numericValue * progress;
-
-
-
-            if (hasDecimal) {
-
-                element.textContent =
-                    currentValue.toFixed(1);
-
-            }
-            else {
-
-                element.textContent =
-                    Math.floor(
-                        currentValue
-                    ).toLocaleString();
-
-            }
-
-
-
-            if (progress < 1) {
-
-                requestAnimationFrame(
-                    update
-                );
-
-            }
-            else {
-
-                element.textContent =
-                    original;
-
-            }
-
-        }
-
-        requestAnimationFrame(update);
 
     }
 
 
 
-    statNumbers.forEach(
-        animateNumber
-    );
-
-
-
-    /* =====================================================
-       17. ISSUE CARD HOVER EFFECT
-    ===================================================== */
-
-    issueCards.forEach(card => {
-
-        card.addEventListener(
-            "mouseenter",
-            function () {
-
-                this.style.transform =
-                    "translateY(-5px)";
-
-                this.style.transition =
-                    "transform 0.2s ease, box-shadow 0.2s ease";
-
-                this.style.boxShadow =
-                    "0 10px 30px rgba(0,0,0,0.12)";
-
-            }
-        );
-
-
-
-        card.addEventListener(
-            "mouseleave",
-            function () {
-
-                this.style.transform =
-                    "translateY(0)";
-
-                this.style.boxShadow =
-                    "";
-
-            }
-        );
-
-    });
-
-
-
-    /* =====================================================
-       18. SAVE / BOOKMARK ISSUE
-    ===================================================== */
+    /* ======================================================
+       6. SAVE / BOOKMARK
+    ====================================================== */
 
     issueCards.forEach((card, index) => {
 
         const title =
-            card.querySelector(
-                ".issue-title"
-            )?.textContent
-            || `Issue ${index + 1}`;
+            card.querySelector("h3")
+                ?.textContent
+                .trim()
+            || `Issue ${index}`;
 
 
 
-        const saveButton =
-            document.createElement("button");
-
-        saveButton.textContent =
-            "☆";
-
-        saveButton.title =
-            "Save issue";
-
-        saveButton.style.position =
-            "absolute";
-
-        saveButton.style.top =
-            "12px";
-
-        saveButton.style.right =
-            "12px";
-
-        saveButton.style.width =
-            "36px";
-
-        saveButton.style.height =
-            "36px";
-
-        saveButton.style.border =
-            "none";
-
-        saveButton.style.borderRadius =
-            "50%";
-
-        saveButton.style.background =
-            "white";
-
-        saveButton.style.fontSize =
-            "20px";
-
-        saveButton.style.cursor =
-            "pointer";
-
-        saveButton.style.zIndex =
-            "5";
+        const saveKey =
+            "savedIssue_" +
+            title;
 
 
 
         /*
-           Make sure card can contain
-           absolutely positioned button
+           Make card position relative
         */
 
-        if (
-            getComputedStyle(card).position
-            === "static"
-        ) {
+        card.style.position =
+            "relative";
 
-            card.style.position =
-                "relative";
 
-        }
+
+        /*
+           Create bookmark button
+        */
+
+        const saveButton =
+            document.createElement("button");
+
+
+
+        saveButton.className =
+            "js-save-button";
+
+
+
+        saveButton.innerHTML =
+            localStorage.getItem(
+                saveKey
+            )
+                ? "★"
+                : "☆";
+
+
+
+        saveButton.title =
+            "Save issue";
+
+
+
+        Object.assign(
+            saveButton.style,
+            {
+
+                position: "absolute",
+
+                top: "15px",
+
+                right: "15px",
+
+                width: "40px",
+
+                height: "40px",
+
+                borderRadius: "50%",
+
+                border: "none",
+
+                background: "#ffffff",
+
+                fontSize: "22px",
+
+                cursor: "pointer",
+
+                zIndex: "10",
+
+                boxShadow:
+                    "0 2px 8px rgba(0,0,0,0.15)"
+
+            }
+        );
 
 
 
@@ -1370,27 +1245,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-        const saveKey =
-            "saved_" + title;
-
-
-
-        if (
-            localStorage.getItem(
-                saveKey
-            )
-        ) {
-
-            saveButton.textContent =
-                "★";
-
-        }
-
-
-
         saveButton.addEventListener(
             "click",
-            function (event) {
+            event => {
 
                 event.preventDefault();
 
@@ -1398,39 +1255,35 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-                const saved =
+                if (
                     localStorage.getItem(
                         saveKey
-                    );
-
-
-
-                if (saved) {
+                    )
+                ) {
 
                     localStorage.removeItem(
                         saveKey
                     );
 
-                    this.textContent =
+                    saveButton.innerHTML =
                         "☆";
 
                     showToast(
-                        "Issue removed from saved."
+                        "Issue removed from saved"
                     );
 
-                }
-                else {
+                } else {
 
                     localStorage.setItem(
                         saveKey,
                         "true"
                     );
 
-                    this.textContent =
+                    saveButton.innerHTML =
                         "★";
 
                     showToast(
-                        "Issue saved."
+                        "Issue saved ⭐"
                     );
 
                 }
@@ -1442,31 +1295,690 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-    /* =====================================================
-       19. ISSUE CARD CLICK
-    ===================================================== */
+    /* ======================================================
+       7. PROFILE DROPDOWN
+    ====================================================== */
+
+    if (profileButton) {
+
+        profileButton.style.cursor =
+            "pointer";
+
+
+
+        profileButton.addEventListener(
+            "click",
+            event => {
+
+                event.stopPropagation();
+
+                toggleProfileMenu();
+
+            }
+        );
+
+    }
+
+
+
+    function toggleProfileMenu() {
+
+        let menu =
+            document.querySelector(
+                ".js-profile-menu"
+            );
+
+
+
+        /*
+           If already open,
+           remove it.
+        */
+
+        if (menu) {
+
+            menu.remove();
+
+            return;
+
+        }
+
+
+
+        menu =
+            document.createElement("div");
+
+        menu.className =
+            "js-profile-menu";
+
+
+
+        Object.assign(
+            menu.style,
+            {
+
+                position: "fixed",
+
+                top: "80px",
+
+                right: "25px",
+
+                width: "230px",
+
+                background: "#ffffff",
+
+                borderRadius: "12px",
+
+                padding: "18px",
+
+                zIndex: "99998",
+
+                boxShadow:
+                    "0 10px 35px rgba(0,0,0,0.2)"
+
+            }
+        );
+
+
+
+        menu.innerHTML = `
+
+            <div style="
+                border-bottom:1px solid #eee;
+                padding-bottom:12px;
+                margin-bottom:8px;
+            ">
+
+                <strong>
+                    Rupesh
+                </strong>
+
+                <br>
+
+                <small style="
+                    color:#777;
+                ">
+                    Citizen Account
+                </small>
+
+            </div>
+
+
+            <button
+                class="profile-option"
+                id="myReportsButton">
+                📋 My Reports
+            </button>
+
+
+            <button
+                class="profile-option"
+                id="savedIssuesButton">
+                ⭐ Saved Issues
+            </button>
+
+
+            <button
+                class="profile-option"
+                id="logoutButton">
+                🚪 Logout
+            </button>
+
+        `;
+
+
+
+        document.body.appendChild(
+            menu
+        );
+
+
+
+        /* Button CSS */
+
+        menu.querySelectorAll(
+            ".profile-option"
+        ).forEach(button => {
+
+            Object.assign(
+                button.style,
+                {
+
+                    display: "block",
+
+                    width: "100%",
+
+                    border: "none",
+
+                    background: "transparent",
+
+                    textAlign: "left",
+
+                    padding: "12px 5px",
+
+                    cursor: "pointer",
+
+                    fontSize: "14px"
+
+                }
+            );
+
+
+
+            button.addEventListener(
+                "mouseenter",
+                () => {
+
+                    button.style.background =
+                        "#f5f5f5";
+
+                }
+            );
+
+
+
+            button.addEventListener(
+                "mouseleave",
+                () => {
+
+                    button.style.background =
+                        "transparent";
+
+                }
+            );
+
+        });
+
+
+
+        /*
+           My Reports
+        */
+
+        document
+            .querySelector(
+                "#myReportsButton"
+            )
+            .addEventListener(
+                "click",
+                () => {
+
+                    showToast(
+                        "My Reports opened"
+                    );
+
+                }
+            );
+
+
+
+        /*
+           Saved Issues
+        */
+
+        document
+            .querySelector(
+                "#savedIssuesButton"
+            )
+            .addEventListener(
+                "click",
+                () => {
+
+                    showSavedIssues();
+
+                }
+            );
+
+
+
+        /*
+           Logout
+        */
+
+        document
+            .querySelector(
+                "#logoutButton"
+            )
+            .addEventListener(
+                "click",
+                () => {
+
+                    localStorage.removeItem(
+                        "nagrikUser"
+                    );
+
+                    menu.remove();
+
+                    showToast(
+                        "Logged out successfully"
+                    );
+
+                }
+            );
+
+    }
+
+
+
+    /* ======================================================
+       CLOSE PROFILE WHEN CLICKING OUTSIDE
+    ====================================================== */
+
+    document.addEventListener(
+        "click",
+        event => {
+
+            const menu =
+                document.querySelector(
+                    ".js-profile-menu"
+                );
+
+            if (
+                menu &&
+                !menu.contains(event.target) &&
+                event.target !== profileButton
+            ) {
+
+                menu.remove();
+
+            }
+
+        }
+    );
+
+
+
+    /* ======================================================
+       8. SAVED ISSUES
+    ====================================================== */
+
+    function showSavedIssues() {
+
+        let savedCount = 0;
+
+
+
+        issueCards.forEach(card => {
+
+            const title =
+                card.querySelector("h3")
+                    ?.textContent
+                    .trim();
+
+
+
+            if (
+                title &&
+                localStorage.getItem(
+                    "savedIssue_" +
+                    title
+                )
+            ) {
+
+                savedCount++;
+
+            }
+
+        });
+
+
+
+        showToast(
+            `${savedCount} saved issue${savedCount !== 1 ? "s" : ""}`
+        );
+
+    }
+
+
+
+    /* ======================================================
+       9. HOW DOES NAGRIK SETU WORK?
+    ====================================================== */
+
+    if (howCard) {
+
+        howCard.style.cursor =
+            "pointer";
+
+
+
+        howCard.addEventListener(
+            "click",
+            openHowItWorks
+        );
+
+    }
+
+
+
+    function openHowItWorks() {
+
+        const overlay =
+            document.createElement("div");
+
+
+
+        Object.assign(
+            overlay.style,
+            {
+
+                position: "fixed",
+
+                inset: "0",
+
+                background:
+                    "rgba(0,0,0,0.6)",
+
+                display: "flex",
+
+                alignItems: "center",
+
+                justifyContent: "center",
+
+                padding: "20px",
+
+                zIndex: "99999"
+
+            }
+        );
+
+
+
+        const modal =
+            document.createElement("div");
+
+
+
+        Object.assign(
+            modal.style,
+            {
+
+                background: "#ffffff",
+
+                width: "100%",
+
+                maxWidth: "520px",
+
+                padding: "30px",
+
+                borderRadius: "15px",
+
+                boxSizing: "border-box"
+
+            }
+        );
+
+
+
+        modal.innerHTML = `
+
+            <h2 style="
+                color:#123b5d;
+            ">
+                How does Nagrik Setu work?
+            </h2>
+
+            <br>
+
+            <p>
+                📝 <strong>1. Report</strong>
+                <br>
+                Citizens report civic problems
+                in their locality.
+            </p>
+
+            <br>
+
+            <p>
+                🔍 <strong>2. Track</strong>
+                <br>
+                Citizens can track the progress
+                of reported issues.
+            </p>
+
+            <br>
+
+            <p>
+                🏛️ <strong>3. Authority Response</strong>
+                <br>
+                Relevant authorities review
+                and process issues.
+            </p>
+
+            <br>
+
+            <p>
+                ✅ <strong>4. Resolution</strong>
+                <br>
+                Citizens can see when the issue
+                has been resolved.
+            </p>
+
+            <button id="closeHowButton"
+                style="
+                    width:100%;
+                    padding:12px;
+                    margin-top:20px;
+                    border:none;
+                    border-radius:8px;
+                    background:#123b5d;
+                    color:white;
+                    cursor:pointer;
+                ">
+                Close
+            </button>
+
+        `;
+
+
+
+        overlay.appendChild(
+            modal
+        );
+
+        document.body.appendChild(
+            overlay
+        );
+
+
+
+        document
+            .querySelector(
+                "#closeHowButton"
+            )
+            .addEventListener(
+                "click",
+                () => overlay.remove()
+            );
+
+
+
+        overlay.addEventListener(
+            "click",
+            event => {
+
+                if (
+                    event.target === overlay
+                ) {
+
+                    overlay.remove();
+
+                }
+
+            }
+        );
+
+    }
+
+
+
+    /* ======================================================
+       10. STATISTICS ANIMATION
+    ====================================================== */
+
+    const statNumbers =
+        document.querySelectorAll(
+            ".stat-number"
+        );
+
+
+
+    statNumbers.forEach(element => {
+
+        const original =
+            element.textContent
+                .trim();
+
+
+
+        const numberMatch =
+            original.match(
+                /[\d,.]+/
+            );
+
+
+
+        if (!numberMatch) {
+            return;
+        }
+
+
+
+        const number =
+            parseFloat(
+                numberMatch[0]
+                    .replace(/,/g, "")
+            );
+
+
+
+        if (isNaN(number)) {
+            return;
+        }
+
+
+
+        const suffix =
+            original.substring(
+                numberMatch[0].length
+            );
+
+
+
+        let current = 0;
+
+        const duration =
+            1200;
+
+        const start =
+            performance.now();
+
+
+
+        function animate(time) {
+
+            const progress =
+                Math.min(
+                    (time - start) /
+                    duration,
+                    1
+                );
+
+
+
+            current =
+                number * progress;
+
+
+
+            let display;
+
+
+
+            if (
+                original.includes(".")
+            ) {
+
+                display =
+                    current.toFixed(1);
+
+            } else {
+
+                display =
+                    Math.floor(
+                        current
+                    ).toLocaleString();
+
+            }
+
+
+
+            element.textContent =
+                display +
+                suffix;
+
+
+
+            if (
+                progress < 1
+            ) {
+
+                requestAnimationFrame(
+                    animate
+                );
+
+            } else {
+
+                element.textContent =
+                    original;
+
+            }
+
+        }
+
+
+
+        requestAnimationFrame(
+            animate
+        );
+
+    });
+
+
+
+    /* ======================================================
+       11. ISSUE CARD HOVER
+    ====================================================== */
 
     issueCards.forEach(card => {
 
         card.addEventListener(
-            "click",
-            function (event) {
+            "mouseenter",
+            () => {
 
-                /*
-                   Don't open modal when
-                   clicking buttons/links
-                */
+                card.style.transform =
+                    "translateY(-4px)";
 
-                if (
-                    event.target.closest("a") ||
-                    event.target.closest("button")
-                ) {
-                    return;
-                }
+                card.style.boxShadow =
+                    "0 10px 30px rgba(0,0,0,0.12)";
 
-                openIssueModal(
-                    this
-                );
+                card.style.transition =
+                    "all 0.2s ease";
+
+            }
+        );
+
+
+
+        card.addEventListener(
+            "mouseleave",
+            () => {
+
+                card.style.transform =
+                    "translateY(0)";
+
+                card.style.boxShadow =
+                    "";
 
             }
         );
@@ -1475,71 +1987,87 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-    /* =====================================================
-       20. LOCAL STORAGE USER
-    ===================================================== */
+    /* ======================================================
+       12. KEYBOARD SHORTCUTS
+    ====================================================== */
 
-    if (
-        !localStorage.getItem(
-            "nagrikUser"
-        )
-    ) {
+    document.addEventListener(
+        "keydown",
+        event => {
 
-        const user = {
+            /*
+               "/" = search
+            */
 
-            name: "Rupesh",
+            if (
+                event.key === "/" &&
+                document.activeElement.tagName !== "INPUT"
+            ) {
 
-            role: "Citizen",
+                event.preventDefault();
 
-            loginTime:
-                new Date()
-                    .toISOString()
+                const search =
+                    document.querySelector(
+                        "#issueSearch"
+                    );
 
-        };
+                if (search) {
+                    search.focus();
+                }
 
-        localStorage.setItem(
-            "nagrikUser",
-            JSON.stringify(user)
-        );
-
-    }
-
-
-
-    /* =====================================================
-       21. SCROLL REVEAL ANIMATION
-    ===================================================== */
-
-    const elementsToReveal =
-        document.querySelectorAll(
-            ".issue-card, .sidebar-card, .how-card"
-        );
+            }
 
 
 
-    elementsToReveal.forEach(
-        element => {
+            /*
+               Escape = close modal/menu
+            */
 
-            element.style.opacity =
-                "0";
+            if (
+                event.key === "Escape"
+            ) {
 
-            element.style.transform =
-                "translateY(20px)";
+                const modal =
+                    document.querySelector(
+                        ".ns-modal-overlay"
+                    );
 
-            element.style.transition =
-                "opacity 0.5s ease, transform 0.5s ease";
+                if (modal) {
+                    modal.remove();
+                }
+
+
+
+                const profile =
+                    document.querySelector(
+                        ".js-profile-menu"
+                    );
+
+                if (profile) {
+                    profile.remove();
+                }
+
+            }
 
         }
     );
 
 
 
-    const revealObserver =
-        new IntersectionObserver(
-            entries => {
+    /* ======================================================
+       13. SCROLL REVEAL
+    ====================================================== */
 
-                entries.forEach(
-                    entry => {
+    if (
+        "IntersectionObserver"
+        in window
+    ) {
+
+        const observer =
+            new IntersectionObserver(
+                entries => {
+
+                    entries.forEach(entry => {
 
                         if (
                             entry.isIntersecting
@@ -1551,101 +2079,50 @@ document.addEventListener("DOMContentLoaded", function () {
                             entry.target.style.transform =
                                 "translateY(0)";
 
-                            revealObserver.unobserve(
+                            observer.unobserve(
                                 entry.target
                             );
 
                         }
 
-                    }
-                );
+                    });
 
-            },
-            {
-                threshold: 0.15
-            }
-        );
-
-
-
-    elementsToReveal.forEach(
-        element => {
-
-            revealObserver.observe(
-                element
+                },
+                {
+                    threshold: 0.15
+                }
             );
 
-        }
-    );
+
+
+        issueCards.forEach(card => {
+
+            card.style.opacity =
+                "0";
+
+            card.style.transform =
+                "translateY(20px)";
+
+            card.style.transition =
+                "opacity 0.5s ease, transform 0.5s ease";
+
+            observer.observe(
+                card
+            );
+
+        });
+
+    }
 
 
 
-    /* =====================================================
-       22. DYNAMIC LAST UPDATED
-    ===================================================== */
-
-    const lastUpdated =
-        document.createElement("div");
-
-    lastUpdated.textContent =
-        "Last updated just now";
-
-    lastUpdated.style.position =
-        "fixed";
-
-    lastUpdated.style.bottom =
-        "10px";
-
-    lastUpdated.style.left =
-        "10px";
-
-    lastUpdated.style.fontSize =
-        "11px";
-
-    lastUpdated.style.color =
-        "#777";
-
-    lastUpdated.style.background =
-        "rgba(255,255,255,0.9)";
-
-    lastUpdated.style.padding =
-        "5px 8px";
-
-    lastUpdated.style.borderRadius =
-        "5px";
-
-    lastUpdated.style.zIndex =
-        "1000";
-
-    document.body.appendChild(
-        lastUpdated
-    );
-
-
-
-    /* =====================================================
-       23. UPDATE TIME
-    ===================================================== */
-
-    setInterval(
-        function () {
-
-            lastUpdated.textContent =
-                "Last updated just now";
-
-        },
-        60000
-    );
-
-
-
-    /* =====================================================
-       24. ONLINE / OFFLINE DETECTION
-    ===================================================== */
+    /* ======================================================
+       14. OFFLINE / ONLINE
+    ====================================================== */
 
     window.addEventListener(
         "online",
-        function () {
+        () => {
 
             showToast(
                 "You are back online."
@@ -1658,10 +2135,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
     window.addEventListener(
         "offline",
-        function () {
+        () => {
 
             showToast(
-                "You are offline. Some features may not work.",
+                "You are offline.",
                 "error"
             );
 
@@ -1670,12 +2147,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-    /* =====================================================
-       25. CONSOLE MESSAGE
-    ===================================================== */
+    /* ======================================================
+       15. FINAL MESSAGE
+    ====================================================== */
 
     console.log(
-        "================================="
+        "================================"
     );
 
     console.log(
@@ -1683,23 +2160,47 @@ document.addEventListener("DOMContentLoaded", function () {
     );
 
     console.log(
-        "DOM manipulation: ENABLED"
+        "✓ DOM manipulation"
     );
 
     console.log(
-        "Event handling: ENABLED"
+        "✓ Event handling"
     );
 
     console.log(
-        "LocalStorage: ENABLED"
+        "✓ Search"
     );
 
     console.log(
-        "Backend: NOT REQUIRED"
+        "✓ Filters"
     );
 
     console.log(
-        "================================="
+        "✓ Issue modal"
+    );
+
+    console.log(
+        "✓ Profile menu"
+    );
+
+    console.log(
+        "✓ Save issues"
+    );
+
+    console.log(
+        "✓ LocalStorage"
+    );
+
+    console.log(
+        "✓ Keyboard shortcuts"
+    );
+
+    console.log(
+        "✓ Animations"
+    );
+
+    console.log(
+        "================================"
     );
 
 });

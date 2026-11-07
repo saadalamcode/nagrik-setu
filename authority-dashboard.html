@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nagrik Setu - Authority Portal</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="authority-dashboard.css">
+</head>
+<body>
+    <div class="topline"></div>
+    <header class="site">
+        <div class="header-inner">
+            <a class="brand" href="authority-dashboard.html">
+                <img src="Nagriksetulogo.png" alt="Nagrik Setu logo" class="brand-logo">
+                <div class="brand-text">
+                    <div class="display">Nagrik Setu</div>
+                    <div class="tagline">
+                        Report it. Track it. Fix it, together.
+                    </div>
+                </div>
+            </a>
+            <div class="portal-badge">
+                Authority Portal
+            </div>
+            <nav class="site-nav">
+                <a class="active" href="authority-dashboard.html">Dashboard</a>
+                <a href="#">Issue Management</a>
+                <a href="#">Issue Map</a>
+                <a href="#">Ward Overview</a>
+                <a href="#">Performance</a>
+            </nav>
+            <div class="header-actions">
+                <div class="profile-circle">AO</div>
+                <span class="authority-user">Authority Officer</span>
+            </div>
+        </div>
+    </header>
+    <section class="hero">
+        <div class="wrap hero-grid">
+            <div class="hero-head">
+                <div class="eyebrow">
+                    Authority Portal · Ward 9
+                </div>
+                <h1>
+                    Keep your ward informed, responsive, and moving toward resolution.
+                </h1>
+                <p>
+                    Review citizen reports, prioritize urgent issues, assign action, and keep residents updated from acknowledgement to resolution.
+                </p>
+            </div>
+            <div class="stat-board">
+                <div class="stat-cell">
+                    <div class="stat-number">38</div>
+                    <div class="stat-label">Open issues</div>
+                </div>
+                <div class="stat-cell">
+                    <div class="stat-number">17</div>
+                    <div class="stat-label">In progress</div>
+                </div>
+                <div class="stat-cell">
+                    <div class="stat-number">52</div>
+                    <div class="stat-label">Resolved this month</div>
+                </div>
+                <div class="stat-cell">
+                    <div class="stat-number">7.8</div>
+                    <div class="stat-label">Response score</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <main>
+        <section class="overview-section">
+            <div class="overview-wrap">
+                <div class="section-top">
+                    <div>
+                        <h2>Ward overview</h2>
+                        <div class="filter-chips">
+                            <button class="active">All issues</button>
+                            <button>Urgent</button>
+                            <button>Pending</button>
+                            <button>In progress</button>
+                            <button>Resolved</button>
+                        </div>
+                    </div>
+                    <button class="view-map">⌖ &nbsp; View map</button>
+                </div>
+                <div class="overview-grid">
+                    <div class="issue-area">
+                        <div class="issue-table">
+                            <div class="table-header">
+                                <div>Ticket</div>
+                                <div>Issue</div>
+                                <div>Severity</div>
+                                <div>Location</div>
+                                <div>Reported</div>
+                                <div>Affected</div>
+                                <div>Status</div>
+                                <div>Department</div>
+                                <div>Action</div>
+                            </div>
+                            <div class="issue-row">
+                                <div class="ticket-id">NS-1842</div>
+                                <div>Pothole cluster near Sector 14</div>
+                                <div><span class="severity high">High</span></div>
+                                <div>Sector 14</div>
+                                <div>Sep 9,<br>2024</div>
+                                <div>47</div>
+                                <div><span class="status progress">In progress</span></div>
+                                <div>Road Maintenance</div>
+                                <div><a href="#">Manage</a></div>
+                            </div>
+                            <div class="issue-row">
+                                <div class="ticket-id">NS-1839</div>
+                                <div>Garbage overflow at Block C</div>
+                                <div><span class="severity medium">Medium</span></div>
+                                <div>Block C, Ward 9</div>
+                                <div>Sep 9,<br>2024</div>
+                                <div>31</div>
+                                <div><span class="status acknowledged">Acknowledged</span></div>
+                                <div>Sanitation</div>
+                                <div><a href="#">Manage</a></div>
+                            </div>
+                            <div class="issue-row">
+                                <div class="ticket-id">NS-1831</div>
+                                <div>Open drainage causing waterlogging</div>
+                                <div><span class="severity high">High</span></div>
+                                <div>Sector 15</div>
+                                <div>Sep 8,<br>2024</div>
+                                <div>83</div>
+                                <div><span class="status progress">In progress</span></div>
+                                <div>Water &amp; Drainage</div>
+                                <div><a href="#">Manage</a></div>
+                            </div>
+                            <div class="issue-row">
+                                <div class="ticket-id">NS-1828</div>
+                                <div>Broken streetlight on Park Road</div>
+                                <div><span class="severity low">Low</span></div>
+                                <div>Park Road</div>
+                                <div>Sep 8,<br>2024</div>
+                                <div>19</div>
+                                <div><span class="status reported">Reported</span></div>
+                                <div>—</div>
+                                <div><a href="#">Manage</a></div>
+                            </div>
+                            <div class="issue-row">
+                                <div class="ticket-id">NS-1820</div>
+                                <div>Road damage after drainage work</div>
+                                <div><span class="severity medium">Medium</span></div>
+                                <div>Main Market</div>
+                                <div>Sep 7,<br>2024</div>
+                                <div>62</div>
+                                <div><span class="status progress">In progress</span></div>
+                                <div>Road Maintenance</div>
+                                <div><a href="#">Manage</a></div>
+                            </div>
+                        </div>
+                        <div class="activity-card">
+                            <h3>Recent authority activity</h3>
+                            <div class="activity-row">
+                                <span class="activity-dot gold"></span>
+                                <span>NS-1839 assigned to Sanitation Department</span>
+                                <span class="activity-time">10:45 AM</span>
+                            </div>
+                            <div class="activity-row">
+                                <span class="activity-dot navy"></span>
+                                <span>NS-1831 status updated: In progress → proof of work required</span>
+                                <span class="activity-time">9:30 AM</span>
+                            </div>
+                            <div class="activity-row">
+                                <span class="activity-dot green"></span>
+                                <span>NS-1798 proof of work received — awaiting citizen verification</span>
+                                <span class="activity-time">Yesterday</span>
+                            </div>
+                            <div class="activity-row">
+                                <span class="activity-dot red"></span>
+                                <span>NS-1811 escalated: overdue by 3 days — notified Dept. Head</span>
+                                <span class="activity-time">Yesterday</span>
+                            </div>
+                        </div>
+                    </div>
+                    <aside class="overview-sidebar">
+                        <div class="sidebar-card">
+                            <h3>Issue summary</h3>
+                            <div class="summary-row">
+                                <span>Pending acknowledgement</span>
+                                <strong>11</strong>
+                            </div>
+                            <div class="summary-row">
+                                <span>In progress</span>
+                                <strong>17</strong>
+                            </div>
+                            <div class="summary-row">
+                                <span>Awaiting verification</span>
+                                <strong>6</strong>
+                            </div>
+                            <div class="summary-row">
+                                <span>Resolved this month</span>
+                                <strong>52</strong>
+                            </div>
+                        </div>
+                        <div class="sidebar-card">
+                            <h3>Department workload</h3>
+                            <div class="workload-item">
+                                <div class="workload-label">
+                                    <span>Road maintenance</span>
+                                    <strong>12</strong>
+                                </div>
+                                <div class="workload-bar"><span style="width: 100%;"></span></div>
+                            </div>
+                            <div class="workload-item">
+                                <div class="workload-label">
+                                    <span>Sanitation</span>
+                                    <strong>9</strong>
+                                </div>
+                                <div class="workload-bar"><span style="width: 75%;"></span></div>
+                            </div>
+                            <div class="workload-item">
+                                <div class="workload-label">
+                                    <span>Street lighting</span>
+                                    <strong>7</strong>
+                                </div>
+                                <div class="workload-bar"><span style="width: 58%;"></span></div>
+                            </div>
+                            <div class="workload-item">
+                                <div class="workload-label">
+                                    <span>Water &amp; drainage</span>
+                                    <strong>6</strong>
+                                </div>
+                                <div class="workload-bar"><span style="width: 50%;"></span></div>
+                            </div>
+                        </div>
+                        <div class="sidebar-card">
+                            <h3>Ward performance</h3>
+                            <div class="performance-row">
+                                <span>Avg. response time</span>
+                                <strong>6.2 days</strong>
+                            </div>
+                            <div class="performance-row">
+                                <span>Resolution rate</span>
+                                <strong>81%</strong>
+                            </div>
+                            <div class="performance-row">
+                                <span>Citizen verification</span>
+                                <strong>74%</strong>
+                            </div>
+                            <div class="performance-row">
+                                <span>Response score</span>
+                                <strong>7.8 / 10</strong>
+                            </div>
+                            <a class="performance-link" href="#">Full performance report →</a>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <img src="Nagriksetulogo.png" alt="Nagrik Setu logo">
+                <div class="footer-brand-name">Nagrik Setu</div>
+                <p>
+                    Connecting citizens with local authorities.
+                    Report it. Track it. Fix it, together.
+                </p>
+            </div>
+            <div class="footer-column">
+                <h3>PLATFORM</h3>
+                <a href="homepage.html">Home</a>
+                <a href="#">Report an issue</a>
+                <a href="#">Leaderboard</a>
+            </div>
+            <div class="footer-column">
+                <h3>FOR AUTHORITIES</h3>
+                <a href="authority-dashboard.html">Authority login</a>
+            </div>
+            <div class="footer-column">
+                <h3>ABOUT</h3>
+                <a href="#">How it works</a>
+                <a href="#">Contact support</a>
+                <a href="#">Privacy policy</a>
+                <a href="#">Terms of use</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div>© 2026 Nagrik Setu. Sector 14 · Faridabad Ward 9</div>
+            <div>A civic transparency platform</div>
+        </div>
+    </footer>
+</body>
+</html>

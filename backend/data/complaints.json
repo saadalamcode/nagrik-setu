@@ -1,0 +1,18 @@
+[
+  {
+    "id": 1,
+    "category": "Public sanitation",
+    "location": "gurgaon",
+    "description": "afafsaFG",
+    "photoName": "Waterlogging.jpg",
+    "date": "2026-11-07T16:34:22.836Z"
+  },
+  {
+    "id": 2,
+    "category": "Road damage",
+    "location": "streelight",
+    "description": "pakistan",
+    "photoName": "Opendrain.jpg",
+    "date": "2026-11-07T16:36:53.562Z"
+  }
+]

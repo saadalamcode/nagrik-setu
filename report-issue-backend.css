@@ -1,0 +1,221 @@
+.form-stage[hidden],
+.success-panel[hidden] {
+    display: none !important;
+}
+
+.form-stage {
+    width: 100%;
+}
+
+.upload-box {
+    position: relative;
+    overflow: hidden;
+}
+
+.upload-box.drag-over {
+    border-color: #E39A2E;
+    background: #FBF8EF;
+}
+
+.upload-box.has-image > .upload-icon,
+.upload-box.has-image > #upload-title,
+.upload-box.has-image > small {
+    display: none;
+}
+
+.image-preview {
+    display: none;
+    width: 100%;
+    max-height: 210px;
+    object-fit: contain;
+    padding: 8px;
+}
+
+.upload-box.has-image .image-preview {
+    display: block;
+}
+
+.category-option.selected {
+    border: 2px solid #123A5C;
+    background: #F5F8FA;
+    box-shadow: 0 0 0 1px rgba(18, 58, 92, 0.08);
+}
+
+.form-error {
+    min-height: 16px;
+    margin: 5px 0 0;
+    color: #B74335;
+    font-size: 11px;
+}
+
+.backend-field {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    margin: 0 0 15px;
+}
+
+.backend-field label {
+    color: #211D16;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.backend-field input,
+.backend-field select,
+.backend-field textarea {
+    width: 100%;
+    min-height: 40px;
+    padding: 10px 12px;
+    border: 1px solid #D9CEB5;
+    border-radius: 6px;
+    background: #FFFFFF;
+    color: #211D16;
+    font: 12px 'Inter', sans-serif;
+    outline: none;
+}
+
+.backend-field textarea {
+    min-height: 110px;
+    resize: vertical;
+    line-height: 1.5;
+}
+
+.backend-field input:focus,
+.backend-field select:focus,
+.backend-field textarea:focus {
+    border-color: #123A5C;
+    box-shadow: 0 0 0 3px rgba(18, 58, 92, 0.08);
+}
+
+.form-navigation {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.form-navigation .continue-button,
+.form-navigation .secondary-button {
+    flex: 1;
+}
+
+.secondary-button {
+    min-height: 37px;
+    padding: 9px 16px;
+    border: 1px solid #D9CEB5;
+    border-radius: 5px;
+    background: #FFFFFF;
+    color: #123A5C;
+    font: 600 12px 'Inter', sans-serif;
+    cursor: pointer;
+}
+
+.secondary-button:hover {
+    background: #FBF8EF;
+}
+
+.continue-button:disabled {
+    opacity: 0.65;
+    cursor: wait;
+}
+
+.review-intro {
+    margin: 0 0 15px;
+    color: #75705F;
+    font-size: 12px;
+}
+
+.review-details {
+    display: grid;
+    gap: 0;
+    margin: 0 0 12px;
+    border: 1px solid #E2DAC9;
+    border-radius: 7px;
+    overflow: hidden;
+}
+
+.review-details > div {
+    display: grid;
+    grid-template-columns: 115px minmax(0, 1fr);
+    gap: 12px;
+    padding: 10px 12px;
+    border-bottom: 1px solid #EEE8DC;
+}
+
+.review-details > div:last-child {
+    border-bottom: 0;
+}
+
+.review-details span {
+    color: #75705F;
+    font-size: 11px;
+}
+
+.review-details strong,
+.review-details p {
+    margin: 0;
+    color: #211D16;
+    font-size: 12px;
+    font-weight: 600;
+    overflow-wrap: anywhere;
+}
+
+.review-details .review-description-row {
+    grid-template-columns: 1fr;
+    gap: 5px;
+}
+
+.success-panel {
+    padding: 26px 10px 12px;
+    text-align: center;
+}
+
+.success-mark {
+    width: 48px;
+    height: 48px;
+    display: grid;
+    place-items: center;
+    margin: 0 auto 12px;
+    border-radius: 50%;
+    background: #EAF4EA;
+    color: #356B3B;
+    font-size: 25px;
+    font-weight: 700;
+}
+
+.success-panel h2 {
+    margin: 0 0 8px;
+    color: #123A5C;
+    font-family: 'Fraunces', serif;
+    font-size: 22px;
+}
+
+.success-panel p {
+    margin: 0 auto 14px;
+    max-width: 420px;
+    color: #75705F;
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+.success-code {
+    margin: 0 auto 18px;
+    padding: 12px;
+    border: 1px dashed #D5CCB5;
+    border-radius: 6px;
+    background: #FBF8EF;
+    color: #123A5C;
+    font: 600 16px 'IBM Plex Mono', monospace;
+    letter-spacing: 0.5px;
+}
+
+@media (max-width: 600px) {
+    .form-navigation {
+        flex-direction: column-reverse;
+    }
+
+    .review-details > div {
+        grid-template-columns: 1fr;
+        gap: 4px;
+    }
+}

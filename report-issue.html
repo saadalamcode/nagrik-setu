@@ -13,6 +13,7 @@
 
     <!-- Nagrik-Setu typography -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
+<<<<<<< Updated upstream
     <link
         rel="preconnect"
         href="https://fonts.gstatic.com"
@@ -28,6 +29,12 @@
         rel="stylesheet"
         href="report-issue.css"
     >
+=======
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600&family=IBM+Plex+Mono:wght@500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="report-issue.css">
+    <link rel="stylesheet" href="report-issue-backend.css">
+>>>>>>> Stashed changes
 </head>
 
 <body>
@@ -217,6 +224,7 @@
 
         </div>
 
+<<<<<<< Updated upstream
 
         <!-- =================================================
              PROGRESS
@@ -266,6 +274,26 @@
                     Review &amp; submit
                 </div>
 
+=======
+        <div class="steps">
+            <div class="step active" data-step="1">
+                <span>1</span>
+                <strong>Photo & category</strong>
+            </div>
+
+            <div class="step-line" id="step-line-1"></div>
+
+            <div class="step" data-step="2">
+                <span>2</span>
+                <span>Location & details</span>
+            </div>
+
+            <div class="step-line" id="step-line-2"></div>
+
+            <div class="step" data-step="3">
+                <span>3</span>
+                <span>Review & submit</span>
+>>>>>>> Stashed changes
             </div>
 
         </div>
@@ -299,9 +327,11 @@
 
                 <!-- PHOTO -->
 
+                <div id="stage-1" class="form-stage">
                 <div class="form-section">
 
                     <div class="section-label">
+<<<<<<< Updated upstream
 
                         <strong>
                             1. Upload photo
@@ -388,7 +418,19 @@
                             alt="Selected issue"
                         >
 
+=======
+                        1. Upload photo <span>(recommended)</span>
+                    </div>
+
+                    <label class="upload-box" id="upload-box">
+                        <div class="upload-icon">▧</div>
+                        <strong id="upload-title">Drag & drop a photo or tap to browse</strong>
+                        <small>JPG, PNG or WEBP · Max 10 MB</small>
+                        <input id="issue-photo" name="photo" type="file" accept="image/jpeg,image/png,image/webp" hidden>
+                        <img id="image-preview" class="image-preview" alt="Selected issue photo">
+>>>>>>> Stashed changes
                     </label>
+                    <p id="upload-error" class="form-error" role="alert"></p>
 
 
                     <p
@@ -411,6 +453,7 @@
 
                     </div>
 
+<<<<<<< Updated upstream
 
                     <div
                         class="category-grid"
@@ -516,7 +559,119 @@
                 >
                     Continue
                     <span>→</span>
+=======
+                    <div class="category-grid" id="category-grid">
+
+                        <button type="button" class="category-option" data-category="Pothole">
+                            <span>🕳️</span>
+                            <strong>Pothole</strong>
+                        </button>
+
+                        <button type="button" class="category-option" data-category="Garbage">
+                            <span>🗑️</span>
+                            <strong>Garbage</strong>
+                        </button>
+
+                        <button type="button" class="category-option" data-category="Open sewer / drainage">
+                            <span>💧</span>
+                            <strong>Open sewer / drainage</strong>
+                        </button>
+
+                        <button type="button" class="category-option" data-category="Streetlight">
+                            <span>💡</span>
+                            <strong>Streetlight</strong>
+                        </button>
+
+                        <button type="button" class="category-option" data-category="Water supply">
+                            <span>🚰</span>
+                            <strong>Water supply</strong>
+                        </button>
+
+                        <button type="button" class="category-option" data-category="Road damage">
+                            <span>🚧</span>
+                            <strong>Road damage</strong>
+                        </button>
+
+                        <button type="button" class="category-option" data-category="Public sanitation">
+                            <span>🧹</span>
+                            <strong>Public sanitation</strong>
+                        </button>
+
+                        <button type="button" class="category-option" data-category="Other">
+                            <span>📋</span>
+                            <strong>Other</strong>
+                        </button>
+
+                    </div>
+                    <p id="category-error" class="form-error" role="alert"></p>
+                </div>
+
+                <button type="button" class="continue-button" id="continue-button">
+                    Continue →
+>>>>>>> Stashed changes
                 </button>
+                </div>
+
+                <div id="stage-2" class="form-stage" hidden>
+                    <div class="section-label">3. Location &amp; details</div>
+
+                    <div class="backend-field">
+                        <label for="issue-title">Issue title</label>
+                        <input id="issue-title" name="title" type="text" maxlength="120" placeholder="e.g. Large pothole near market" required>
+                    </div>
+
+                    <div class="backend-field">
+                        <label for="issue-location">Location / complete address</label>
+                        <input id="issue-location" name="location" type="text" maxlength="250" placeholder="e.g. Sector 14, near main market, Ward 9" required>
+                    </div>
+
+                    <div class="backend-field">
+                        <label for="issue-severity">Severity</label>
+                        <select id="issue-severity" name="severity">
+                            <option value="Low">Low</option>
+                            <option value="Medium" selected>Medium</option>
+                            <option value="High">High</option>
+                            <option value="Critical">Critical</option>
+                        </select>
+                    </div>
+
+                    <div class="backend-field">
+                        <label for="issue-description">Describe the issue</label>
+                        <textarea id="issue-description" name="description" rows="5" maxlength="3000" placeholder="Explain what happened, where it is, and how it affects people..." required></textarea>
+                    </div>
+
+                    <p id="details-error" class="form-error" role="alert"></p>
+                    <div class="form-navigation">
+                        <button type="button" class="secondary-button" id="back-to-step-1">Back</button>
+                        <button type="button" class="continue-button" id="review-button">Review report →</button>
+                    </div>
+                </div>
+
+                <div id="stage-3" class="form-stage" hidden>
+                    <div class="section-label">4. Review &amp; submit</div>
+                    <p class="review-intro">Check the information below before sending your complaint.</p>
+                    <div class="review-details">
+                        <div><span>Category</span><strong id="review-category">—</strong></div>
+                        <div><span>Title</span><strong id="review-title">—</strong></div>
+                        <div><span>Location</span><strong id="review-location">—</strong></div>
+                        <div><span>Severity</span><strong id="review-severity">—</strong></div>
+                        <div class="review-description-row"><span>Description</span><p id="review-description">—</p></div>
+                        <div><span>Photo</span><strong id="review-photo">No photo attached</strong></div>
+                    </div>
+                    <p id="submit-error" class="form-error" role="alert"></p>
+                    <div class="form-navigation">
+                        <button type="button" class="secondary-button" id="back-to-step-2">Edit details</button>
+                        <button type="button" class="continue-button" id="submit-complaint">Submit complaint</button>
+                    </div>
+                </div>
+
+                <div id="success-panel" class="success-panel" hidden>
+                    <div class="success-mark">✓</div>
+                    <h2>Complaint submitted</h2>
+                    <p>Your complaint has been saved. Keep this reference number to track its progress.</p>
+                    <div class="success-code" id="success-code">—</div>
+                    <button type="button" class="secondary-button" id="new-complaint">Report another issue</button>
+                </div>
 
             </section>
 
@@ -666,6 +821,7 @@
 
     <script src="report-issue.js"></script>
 
+    <script src="report-issue.js" defer></script>
 </body>
 
 </html>
